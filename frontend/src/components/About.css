@@ -1,0 +1,179 @@
+/* About.css */
+.about-section {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Ensure the content stacks vertically */
+  font-family: 'Arial', sans-serif;
+  background-color: #111; /* Background */
+  color: #f4f4f4;
+  padding: 20px; /* Padding for mobile devices */
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 30px; /* Add spacing between text and icons */
+  position: relative;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title on smaller screens */
+}
+
+.about-text {
+  width: 60%;
+}
+
+.about-text .intro-text {
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.about-text span {
+  font-weight: bold;
+  color: #f0a500;
+}
+
+/* Icon Section */
+.about-icons {
+  display: flex;
+  flex-direction: row; /* Keep icons in a row */
+  justify-content: center; /* Center them horizontally */
+  gap: 30px; /* Add proper spacing between icons */
+  margin-top: 20px; /* Add space between image and icons */
+}
+
+.about-icons a, .about-icons span {
+  font-size: 40px;
+  margin: 15px 0;
+  transition: transform 0.3s ease;
+  color: #f0a500;
+  text-decoration: none;
+}
+
+.about-icons a:hover, .about-icons span:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+/* Image Styling */
+.about-image {
+  width: 300px;
+  max-width: 300px; /* Restrict maximum size of image */
+  border-radius: 50%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Resume Button */
+.resume-button {
+  text-align: center;
+  margin-top: 20px; /* Add margin to separate it from other content */
+}
+
+.resume-button a {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: 2px solid #f0a500;
+  border-radius: 25px;
+  color: #f0a500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resume-button a:hover {
+  background-color: #f0a500;
+  color: #111;
+}
+
+.toast {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack content vertically on mobile */
+    align-items: center; /* Center everything on smaller screens */
+    gap: 20px;
+  }
+
+  .about-text, .about-icons {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .about-title {
+    font-size: 36px;
+  }
+
+  .about-icons a, .about-icons span {
+    font-size: 30px;
+  }
+
+  .about-image {
+    width: 80%;
+    max-width: 250px; /* Reduce image size on smaller screens */
+  }
+
+  .resume-button a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-text .intro-text {
+    font-size: 18px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .about-icons a, .about-icons span {
+    font-size: 25px;
+  }
+
+  .resume-button a {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}

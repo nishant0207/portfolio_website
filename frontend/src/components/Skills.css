@@ -1,0 +1,205 @@
+/* Skills.css */
+.skills-section {
+    padding: 60px;
+    background-color: #ffffff;
+    color: hsl(0, 0%, 0%);
+    font-family: 'Arial', sans-serif;
+}
+
+.skills-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+    text-align: center;
+}
+
+.skills-container {
+    margin-bottom: 50px;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    font-size: 20px; /* Increased for readability */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.skill-bar {
+    width: 100%;
+    max-width: 400px; /* Increased width */
+    background-color: #333;
+    border-radius: 20px; /* Softer, more rounded corners */
+    overflow: hidden;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.7); /* Darker inner shadow */
+}
+
+.skill-level {
+    height: 30px; /* Slightly taller bars */
+    background-color: #f0a500;
+    border-radius: 20px;
+    text-align: right;
+    padding-right: 10px;
+    color: #111;
+    font-weight: bold;
+    line-height: 30px; /* Vertically center the percentage text */
+}
+
+/* LeetCode Stats Section */
+.leetcodes-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #f0a500;
+    text-align: center;
+}
+
+.leetcode-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #222;
+    padding: 30px; /* More padding for better spacing */
+    border-radius: 20px; /* Softer rounded edges */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Darker outer shadow */
+}
+
+.leetcode-solved,
+.leetcode-difficulty,
+.leetcode-badges,
+.leetcode-submissions {
+    padding: 15px;
+    background-color: #333;
+    border-radius: 15px; /* Softer corners */
+    flex: 1;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for each box */
+    transition: transform 0.2s ease; /* Smooth transition */
+}
+
+.leetcode-solved:hover,
+.leetcode-difficulty:hover,
+.leetcode-badges:hover,
+.leetcode-submissions:hover {
+    transform: scale(1.05); /* Slight scale up on hover */
+}
+
+.leetcode-solved h3,
+.leetcode-badges h3,
+.leetcode-submissions h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.leetcode-solved p,
+.leetcode-difficulty p,
+.leetcode-badges p,
+.leetcode-submissions p {
+    color: #aaa;
+    margin: 5px 0;
+}
+
+.easy {
+    color: #00ff99;
+}
+
+.medium {
+    color: #ffcc00;
+}
+
+.hard {
+    color: #ff6666;
+}
+
+/* Progress bar styling for submissions */
+.leetcode-submissions {
+    position: relative;
+}
+
+.leetcode-submissions-bar {
+    width: 100%;
+    height: 25px;
+    background-color: #444;
+    border-radius: 15px; /* Softer corners */
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.leetcode-submissions-progress {
+    height: 100%;
+    background-color: #00ff99;
+    border-radius: 15px; /* Softer rounded corners */
+    transition: width 0.5s ease-in-out;
+}
+
+
+.react-calendar-heatmap .color-empty {
+    fill: #ebedf0;
+}
+
+.react-calendar-heatmap .color-scale-1 {
+    fill: #9be9a8;
+}
+
+.react-calendar-heatmap .color-scale-2 {
+    fill: #40c463;
+}
+
+.react-calendar-heatmap .color-scale-3 {
+    fill: #30a14e;
+}
+
+.react-calendar-heatmap .color-scale-4 {
+    fill: #216e39;
+}
+
+.submissions-title {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #f0a500;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .leetcode-container {
+        flex-direction: column;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-title {
+        font-size: 36px;
+    }
+
+    .skill-name {
+        font-size: 16px;
+    }
+
+    .skill-bar {
+        height: 20px;
+    }
+
+    .leetcode-solved h3,
+    .leetcode-badges h3,
+    .leetcode-submissions h3 {
+        font-size: 20px;
+    }
+}

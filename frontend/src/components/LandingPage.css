@@ -1,0 +1,73 @@
+/* LandingPage.css */
+.landing-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text horizontally */
+}
+
+.text-container {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  align-items: center; /* Center text elements horizontally */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and movement */
+}
+
+.from-text {
+  font-size: 36px;
+  font-style: italic;
+  margin: 0;
+}
+
+.complex-text {
+  font-size: 72px;
+  font-weight: bold;
+  margin: 10px 0; /* Add margin between texts */
+}
+
+.to-text {
+  font-size: 36px;
+  font-style: italic;
+  margin: 0;
+}
+
+.impactful-text {
+  font-size: 72px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Animation Keyframes */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left {
+  opacity: 0;
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.fade-in-right {
+  opacity: 0;
+  animation: slideInFromRight 1s ease-out forwards;
+}
