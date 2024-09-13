@@ -6,7 +6,7 @@
     "node": "^22.8.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.mjs"
   },
   "name": "backend",
   "version": "1.0.0",
