@@ -1,5 +1,4 @@
-// Skills.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import './Skills.css';
 import axios from 'axios';
 
@@ -9,8 +8,10 @@ const Skills = () => {
   useEffect(() => {
     const fetchLeetCodeStats = async () => {
       try {
-        const response = await axios.get('https://portfolio-website-backend-dhfz.onrender.com/api/leetcode-stats');
-        setLeetcodeStats(response.data);
+        // const response = await axios.get('https://portfolio-website-backend-dhfz.onrender.com/api/leetcode-stats');
+        const response = await axios.get('http://localhost:5001/api/leetcode-stats');
+        const data = response.data;
+        setLeetcodeStats(data);
       } catch (error) {
         console.error('Error fetching LeetCode data:', error);
       }

@@ -1,4 +1,4 @@
-/* Skills.css */
+/* Skills Section */
 .skills-section {
     padding: 60px;
     background-color: #ffffff;
@@ -49,10 +49,10 @@
 }
 
 /* LeetCode Stats Section */
-.leetcodes-title {
+.leetcode-title {
     font-size: 36px;
     margin-bottom: 30px;
-    color: #f0a500;
+    color: #000000;
     text-align: center;
 }
 
@@ -74,10 +74,22 @@
     padding: 15px;
     background-color: #333;
     border-radius: 15px; /* Softer corners */
-    flex: 1;
+    flex: 1; /* Ensures equal flex grow for all */
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for each box */
     transition: transform 0.2s ease; /* Smooth transition */
+    min-height: 100px; /* Ensures consistent height */
+    max-height: 100px; /* Fixes height across all */
+}
+
+.leetcode-solved,
+.leetcode-difficulty {
+    flex-basis: 45%; /* Ensures both have the same width */
+}
+
+.leetcode-badges,
+.leetcode-submissions {
+    flex-basis: 45%; /* Keep similar sizes as the other boxes */
 }
 
 .leetcode-solved:hover,
@@ -138,7 +150,6 @@
     transition: width 0.5s ease-in-out;
 }
 
-
 .react-calendar-heatmap .color-empty {
     fill: #ebedf0;
 }
@@ -167,10 +178,15 @@
 
 
 
+
 /* Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .leetcode-container {
         flex-direction: column;
+        gap: 15px; /* Reduced gap for smaller screens */
+        padding: 20px; /* Adjust padding for smaller screen sizes */
+        align-items: center; /* Center align the items */
     }
 
     .skills-container {
@@ -181,6 +197,15 @@
     .skill-bar {
         width: 100%;
         max-width: 100%;
+    }
+
+    .leetcode-solved,
+    .leetcode-difficulty,
+    .leetcode-badges,
+    .leetcode-submissions {
+        min-height: auto; /* Adjust height for small screens */
+        max-height: auto;
+        width: 90%; /* Set width to make it responsive */
     }
 }
 
@@ -201,5 +226,16 @@
     .leetcode-badges h3,
     .leetcode-submissions h3 {
         font-size: 20px;
+    }
+
+    .leetcode-container {
+        padding: 15px; /* Reduce padding for very small screens */
+    }
+
+    .leetcode-solved,
+    .leetcode-difficulty {
+        flex: none; /* Reset flex property for stacking correctly */
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 10px; /* Add spacing between blocks */
     }
 }
