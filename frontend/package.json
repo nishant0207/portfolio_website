@@ -30,6 +30,9 @@
     "eject": "react-scripts eject",
     "preinstall": "npm config set optional false"
   },
+  "resolutions": {
+    "fsevents": "0.0.0"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
