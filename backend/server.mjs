@@ -18,6 +18,11 @@ app.get('/api/leetcode-stats', async (req, res) => {
             difficulty
             count
           }
+          acSubmissionNumByDifficulty {
+            difficulty
+            submissions
+            beatRate
+          }
         }
       }
     }
@@ -37,12 +42,17 @@ app.get('/api/leetcode-stats', async (req, res) => {
 
     const data = response.data.data.matchedUser;
     const acSubmissionNum = data.submitStatsGlobal.acSubmissionNum;
+    const acSubmissionNumByDifficulty = data.submitStatsGlobal.acSubmissionNumByDifficulty;
 
     res.json({
       username: data.username,
       easySolved: acSubmissionNum[1].count,
       mediumSolved: acSubmissionNum[2].count,
       hardSolved: acSubmissionNum[3].count,
+      totalSolved: acSubmissionNum[0].count,
+      easyBeat: acSubmissionNumByDifficulty[0].beatRate,
+      mediumBeat: acSubmissionNumByDifficulty[1].beatRate,
+      hardBeat: acSubmissionNumByDifficulty[2].beatRate,
     });
   } catch (error) {
     console.error('Error fetching LeetCode data:', error);
