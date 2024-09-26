@@ -1,12 +1,11 @@
 // About.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import './About.css';
 
 const About = () => {
   return (
     <div className="about-section">
       <h1 className="about-title">&lt;about&gt;</h1>
-
       <div className="about-content">
         <div className="about-text">
           <p className="intro-text">
@@ -20,7 +19,7 @@ const About = () => {
           </p>
           <p>
             I strive to push the boundaries of what's possible in web development, while maintaining the highest standards of 
-            <span>usability</span> and <span>browser compatibility</span>.
+            <span> usability</span> and <span>browser compatibility</span>.
           </p>
         </div>
 

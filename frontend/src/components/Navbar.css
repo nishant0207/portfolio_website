@@ -1,115 +1,130 @@
 /* Navbar Container */
 .navbar {
-    position: fixed; /* Fix the navbar at the top */
-    top: 0;
-    width: 100%;
-    height: 80px; /* Explicit height for the navbar */
-    padding: 0; /* Remove padding */
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  width: 100%;
+  height: 80px; /* Explicit height for the navbar */
+  padding: 0; /* Remove padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background-color: transparent; /* Default transparent background */
+  transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.navbar.scrolling {
+  background-color: #333; /* Change background when scrolling */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Align name to the left, links to the right */
+  align-items: center; /* Vertically center the items */
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: black; /* Set initial color */
+  transition: color 0.3s ease;
+}
+
+/* When scrolling, change the logo color to white */
+.navbar.scrolling .logo {
+  color: white; /* White color when navbar background changes */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically center links */
+  gap: 30px;
+  margin: 0;
+}
+
+.navbar-links li {
+  display: inline-block;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: white; /* White text color for contrast */
+  font-size: 14px;
+  padding: 15px 25px; /* Increase padding for button look */
+  background-color: #333; /* Black background for buttons */
+  border-radius: 12px; /* Soft rounded corners */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.1); /* Neumorphism shadow effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  display: inline-block;
+}
+
+/* Hover effect */
+.navbar-links li a:hover {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1); /* Adjust the shadow for hover to make it look like the button is pressed */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.navbar-links li a.active {
+  font-weight: bold;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1); /* Adjust the shadow for hover to make it look like the button is pressed */
+  transform: translateY(-3px);
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-bar {
+  width: 25px;
+  height: 3px;
+  background-color: white; /* Ensure the menu icon is visible */
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-icon {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background-color: transparent; /* Default transparent background */
-    transition: background-color 0.3s ease; /* Smooth background color change */
-  }
-  
-  .navbar.scrolling {
-    background-color: #333; /* Change background when scrolling */
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between; /* Align name to the left, links to the right */
-    align-items: center; /* Vertically center the items */
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: black; /* Set initial color (you can set to anything, even transparent) */
-    transition: color 0.3s ease;
   }
 
-  /* When scrolling, change the logo color to white */
-  .navbar.scrolling .logo {
-    color: white; /* White color when navbar background changes */
+  .navbar {
+    background-color: #333; /* Change navbar background on mobile view */
   }
-  
+
+  .navbar-container .logo {
+    color: white; /* Ensure the logo color is visible on mobile */
+  }
+
   .navbar-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertically center links */
-    gap: 30px;
-    margin: 0;
-  }
-  
-  .navbar-links li {
-    display: inline-block;
-  }
-  
-  .navbar-links li a {
-    text-decoration: none;
-    color: white; /* White text color for contrast */
-    font-size: 14px;
-    padding: 15px 25px; /* Increase padding for button look */
-    background-color: #333; /* Black background for buttons */
-    border-radius: 12px; /* Soft rounded corners */
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.1); /* Neumorphism shadow effect */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    display: inline-block;
-  }
-  
-  
-  /* Hover effect */
-  .navbar-links li a:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1); /* Adjust the shadow for hover to make it look like the button is pressed */
-    transform: translateY(-3px); /* Slight lift on hover */
-  }
-  
-  .navbar-links li a.active {
-    font-weight: bold;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), -4px -4px 8px rgba(255, 255, 255, 0.1); /* Adjust the shadow for hover to make it look like the button is pressed */
-    transform: translateY(-3px);
-  }
-  
-  .menu-icon {
-    display: none;
+    position: absolute;
+    top: 80px; /* Push the menu below the navbar */
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 80px); /* Fullscreen menu on mobile */
     flex-direction: column;
-    cursor: pointer;
+    background-color: #333; /* Dark background for mobile menu */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    display: none;
   }
-  
+
+  .navbar-links li a {
+    color: white; /* Ensure the text is white on mobile menu */
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
   .menu-bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-    transition: 0.4s;
+    background-color: white; /* Ensure the mobile menu bars are visible */
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .menu-icon {
-      display: flex;
-    }
-  
-    .navbar-links {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      height: calc(100vh - 60px);
-      flex-direction: column;
-      background-color: #333;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      display: none;
-    }
-  
-    .navbar-links.active {
-      display: flex;
-    }
-  }
+}

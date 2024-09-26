@@ -1,6 +1,6 @@
 /* About.css */
 .about-section {
-  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Ensure the section covers full viewport height */
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
@@ -9,17 +9,8 @@
   background-color: #111; /* Background */
   color: #f4f4f4;
   padding: 20px; /* Padding for mobile devices */
-}
-
-.about-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 80%;
-  max-width: 1000px;
-  margin: 0 auto;
-  gap: 30px; /* Add spacing between text and icons */
   position: relative;
+  overflow: hidden; /* Hide any overflow */
 }
 
 .about-title {
@@ -28,10 +19,28 @@
   font-family: 'Courier New', Courier, monospace;
   margin-bottom: 20px;
   text-align: center; /* Center the title on smaller screens */
+  color: #f4f4f4;
+  z-index: 2; /* Ensure the title is on top of the background */
+  position: relative; /* To control the positioning of the pseudo-element */
+}
+
+/* Ensuring the <about> text stays within the black section */
+.about-title::before {
+  display: none;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between; /* Content is spaced in desktop view */
+  align-items: flex-start;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 30px; /* Add spacing between text and icons */
 }
 
 .about-text {
-  width: 60%;
+  width: 60%; /* Text takes up 60% in desktop view */
 }
 
 .about-text .intro-text {
@@ -50,11 +59,21 @@
   color: #f0a500;
 }
 
+/* Image Styling for Desktop */
+.about-image {
+  width: 300px;
+  max-width: 300px; /* Restrict maximum size of image */
+  border-radius: 50%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  margin-bottom: 20px;
+  display: block;
+}
+
 /* Icon Section */
 .about-icons {
   display: flex;
-  flex-direction: row; /* Keep icons in a row */
-  justify-content: center; /* Center them horizontally */
+  justify-content: center; /* Center icons horizontally */
   gap: 30px; /* Add proper spacing between icons */
   margin-top: 20px; /* Add space between image and icons */
 }
@@ -70,16 +89,6 @@
 .about-icons a:hover, .about-icons span:hover {
   transform: scale(1.2);
   color: #fff;
-}
-
-/* Image Styling */
-.about-image {
-  width: 300px;
-  max-width: 300px; /* Restrict maximum size of image */
-  border-radius: 50%;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-  object-fit: cover;
-  margin-bottom: 20px;
 }
 
 /* Resume Button */
@@ -118,7 +127,7 @@
   opacity: 0.9;
 }
 
-/* Responsive Styling */
+/* Responsive Styling for Tablets and Mobiles */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column; /* Stack content vertically on mobile */
@@ -146,14 +155,22 @@
   .about-image {
     width: 80%;
     max-width: 250px; /* Reduce image size on smaller screens */
+    margin-left: auto;  /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
   }
 
   .resume-button a {
     padding: 10px 20px;
     font-size: 14px;
   }
+
+  .about-title::before {
+    bottom: -20px; /* Adjust the pseudo-element for smaller screens */
+    font-size: 18px;
+  }
 }
 
+/* Responsive Styling for Small Mobiles */
 @media (max-width: 480px) {
   .about-title {
     font-size: 28px;
@@ -175,5 +192,10 @@
   .resume-button a {
     padding: 8px 15px;
     font-size: 12px;
+  }
+
+  .about-title::before {
+    bottom: -15px; /* Adjust the pseudo-element further for very small screens */
+    font-size: 16px;
   }
 }
