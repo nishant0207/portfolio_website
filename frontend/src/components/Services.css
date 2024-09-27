@@ -1,8 +1,7 @@
-/* Services.css */
 .services-section {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the section */
+  align-items: center;
   padding: 50px 0;
   text-align: center;
 }
@@ -11,8 +10,8 @@
   font-size: 48px;
   margin-bottom: 20px;
   font-family: 'Courier New', Courier, monospace;
-  color: #000; /* Use the same color as other section titles */
-  text-align: center; /* Center the title */
+  color: #000;
+  text-align: center;
 }
 
 .services-container {
@@ -22,7 +21,7 @@
   justify-content: center;
   align-items: center;
   padding: 30px 0;
-  background-color: #ffffff; /* Background color for the section */
+  background-color: #ffffff;
   margin-bottom: 30px;
 }
 
@@ -30,49 +29,48 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  gap: 30px; /* Space between the tiles */
-  animation: scroll 30s linear infinite; /* Infinite scroll animation */
+  gap: 20px;
+  animation: scroll 30s linear infinite;
 }
 
 .service-tile {
-  width: 280px; /* Adjust tile size */
-  height: 240px; /* Adjust tile height */
-  background-color: #ffffff; /* Light background to match the given style */
+  width: 280px;
+  height: 240px;
+  background-color: #ffffff;
   border-radius: 15px;
-   /* Light shadow for floating effect */
-   border: 2px solid black;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Position title below the image */
+  justify-content: flex-end;
   align-items: center;
-  overflow: hidden; /* Ensure image stays within the tile */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-  position: relative; /* For proper stacking of image and title */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .service-tile:hover {
-  transform: scale(1.05); /* Slight scale up on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .service-image {
   width: 100%;
-  height: 180px; /* Adjust to ensure the title has space below */
-  object-fit: cover; /* Cover the tile without stretching */
+  height: 180px;
+  object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  display: block; /* Ensure image is always visible */
+  display: block;
 }
 
 .service-title {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  color: #333; /* Darker text for contrast */
+  color: #333;
   padding: 8px 0;
 }
 
-/* Animation to create the infinite scroll effect */
+/* Animation for infinite scroll */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -84,25 +82,18 @@
 
 /* Responsive styles for tablets */
 @media (max-width: 768px) {
+  .services-container {
+    padding: 20px 0;
+  }
+
+  .carousel {
+    gap: 15px;
+  }
+
   .service-tile {
-    width: 240px;
-    height: 200px;
-  }
-
-  .service-image {
-    height: 150px;
-  }
-
-  .service-title {
-    font-size: 14px; /* Slightly smaller font for readability */
-  }
-}
-
-/* Responsive styles for mobile devices */
-@media (max-width: 480px) {
-  .service-tile {
-    width: 200px;
+    width: 220px;
     height: 180px;
+    margin: 0 10px; /* Adjust spacing between tiles */
   }
 
   .service-image {
@@ -110,6 +101,32 @@
   }
 
   .service-title {
-    font-size: 12px; /* Smaller font for better fit on small screens */
+    font-size: 14px;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  .services-container {
+    padding: 10px 0;
+  }
+
+  .carousel {
+    gap: 10px;
+  }
+
+  .service-tile {
+    width: 180px;
+    height: 160px;
+    margin: 0 5px; /* Reduce spacing further for small screens */
+  }
+
+  .service-image {
+    height: 110px;
+  }
+
+  .service-title {
+    font-size: 12px;
+    padding: 5px 0; /* Adjust padding for a tighter fit */
   }
 }
