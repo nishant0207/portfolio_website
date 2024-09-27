@@ -21,7 +21,7 @@
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
   justify-content: center;
   max-width: 600px;
@@ -39,6 +39,7 @@
   font-size: 30px;
   margin-right: 15px;
   color: #f0a500;
+  transition: color 0.3s ease;
 }
 
 .contact-item a {
@@ -55,7 +56,37 @@
   margin: 0;
 }
 
-.contact-item i:hover {
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 2px solid #f0a500;
+  border-radius: 8px;
+  background-color: #333;
   color: #f4f4f4;
-  transition: color 0.3s ease;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0a500;
+  color: #111;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #333;
+  color: #f0a500;
 }

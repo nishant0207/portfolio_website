@@ -25,22 +25,7 @@ const About = () => {
 
         <div className="about-image-container">
           <img src="image.jpg" alt="Nishant Dalal" className="about-image" />
-
-          <div className="about-icons">
-            <a href="https://github.com/nishant0207" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-github"></i>
-            </a>
-            <a href="https://leetcode.com/u/dalalnishant0207/" target="_blank" rel="noopener noreferrer">
-              <i className="fas fa-code"></i>
-            </a>
-          </div>
         </div>
-      </div>
-
-      <div className="resume-button">
-        <a href="https://drive.google.com/file/d/1mIzcIVA2mHREWk9Jxvk72-7zScg7ZNqR/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          Download CV (PDF)
-        </a>
       </div>
     </div>
   );

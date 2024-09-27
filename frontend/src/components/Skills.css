@@ -177,6 +177,17 @@
 }
 
 
+/* responsive certificates tile */
+
+/* Skills.css */
+.certification-tiles-container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
 
 
 /* Responsive */

@@ -1,0 +1,104 @@
+/* CertificationTile.css */
+
+/* Carousel container to hold the tiles and enable horizontal scrolling */
+.carousel-container {
+    display: flex;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    gap: 20px; /* Space between tiles */
+    padding: 20px 10px; /* Padding around the carousel */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Hides the scrollbar but still allows scrolling */
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar for a cleaner look */
+}
+
+.certification-tile {
+    min-width: 300px; /* Set minimum width to match the project tile size */
+    height: 350px; /* Adjust height to fit design */
+    border-radius: 15px; /* Softer, more rounded corners */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Slightly darker shadow to match main style */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #222; /* Match the dark background used in other sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0; /* Remove additional margins; use gap for spacing */
+    scroll-snap-align: start; /* Snap each tile into view */
+}
+
+.certification-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+.certification-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintain a consistent aspect ratio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444; /* Add background to better frame the image */
+}
+
+.certification-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fill the container while maintaining aspect ratio */
+    transition: transform 0.3s ease;
+}
+
+/* CertificationTile.css */
+.certification-link {
+    text-decoration: none; /* Remove underline from the entire clickable tile */
+    color: inherit; /* Inherit color to avoid styling issues */
+    display: block; /* Ensures the link behaves as a block element */
+  }
+
+.certification-tile:hover .certification-image {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.certification-title-container {
+    padding: 10px 15px;
+    background-color: #333; /* Background for the title section */
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certification-title {
+    font-size: 16px; /* Size adjusted for readability */
+    font-weight: bold;
+    color: #ffffff; /* White color for the title */
+    text-decoration: none; /* Remove underline from the title */
+    margin: 0;
+}
+
+/* Responsive adjustments for Certification Tile */
+@media (max-width: 768px) {
+    .certification-tile {
+        min-width: 250px; /* Adjust tile size for tablets */
+        height: 300px; /* Adjust height for tablets */
+    }
+
+    .certification-title {
+        font-size: 14px; /* Smaller text for readability on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .certification-tile {
+        min-width: 200px; /* Further reduced size for mobile devices */
+        height: 250px; /* Reduced height for mobile devices */
+    }
+
+    .certification-title {
+        font-size: 12px; /* Adjust title size for mobile */
+        padding: 8px;
+    }
+}

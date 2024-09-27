@@ -6,10 +6,15 @@ import cors from 'cors';
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-app.use(cors());
+// Telegram Bot Credentials
+const TELEGRAM_BOT_TOKEN = '7274937726:AAHcEiUHF2ib2lyAlxSyXg2dOJcOlthIOFg';
+const TELEGRAM_CHAT_ID = '7032407669';
 
+app.use(cors());
+app.use(express.json()); // To parse JSON request bodies
+
+// Endpoint to fetch LeetCode stats
 app.get('/api/leetcode-stats', async (req, res) => {
-  // Corrected query to match typical LeetCode API structure
   const query = `
     query getUserProfile($username: String!) {
       matchedUser(username: $username) {
@@ -39,14 +44,12 @@ app.get('/api/leetcode-stats', async (req, res) => {
 
     const data = response.data.data.matchedUser;
 
-    // Handle missing data gracefully
     if (!data) {
       throw new Error('No data returned from LeetCode API. Check if the username exists.');
     }
 
     const acSubmissionNum = data.submitStatsGlobal.acSubmissionNum;
 
-    // Safely accessing array elements to avoid undefined errors
     res.json({
       username: data.username,
       easySolved: acSubmissionNum[1]?.count || 0,
@@ -55,11 +58,34 @@ app.get('/api/leetcode-stats', async (req, res) => {
       totalSolved: acSubmissionNum[0]?.count || 0,
     });
   } catch (error) {
-    // Log detailed error information for debugging
     console.error('Error fetching LeetCode data:', error.response?.data || error.message);
-
-    // Send error response with more context
     res.status(500).send('Error fetching LeetCode data. Please check the query structure and user existence.');
+  }
+});
+
+// Endpoint to send message to Telegram Bot
+app.post('/api/send-message', async (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Constructing the message to be sent to Telegram
+  const telegramMessage = `
+📬 New Contact Form Submission:
+- 📛 Name: ${name}
+- 📧 Email: ${email}
+- 📝 Message: ${message}
+  `;
+
+  try {
+    // Sending message to Telegram using the Bot API
+    await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      chat_id: TELEGRAM_CHAT_ID,
+      text: telegramMessage,
+    });
+
+    res.status(200).send({ success: true, message: 'Message sent successfully!' });
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error.response?.data || error.message);
+    res.status(500).send({ success: false, message: 'Failed to send message to Telegram.' });
   }
 });
 
