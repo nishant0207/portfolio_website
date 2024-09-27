@@ -1,4 +1,3 @@
-/* Landing Page Styles */
 .landing-container {
   height: 100vh;
   display: flex;
@@ -6,7 +5,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #ffffff; /* Maintain the black background to match the rest of the design */
+  background-color: #ffffff; /* Maintain the white background */
   overflow: hidden;
 }
 
@@ -19,21 +18,28 @@
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 100vw; /* Standard width for larger screens */
+  height: 70vh; /* Consistent height */
+  max-width: 100vw; /* Limit container width to fit within viewport */
+  max-height: 80vh; /* Limit height to fit within viewport */
   transform: translate(-50%, -50%);
+  overflow: hidden;
+  pointer-events: none; /* Disable pointer events on the container */
 }
 
 #carouselContainer {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 1000px;
-  height: 1000px;
+  width: 800px; /* Adjusted to ensure visibility without reducing tile size */
+  height: 800px; /* Adjusted to fit properly */
   transform: translate(-50%, -50%);
+  pointer-events: auto; /* Enable interaction within the carousel area */
 }
 
 .carouselItem {
-  width: 300px; /* Match the size of other tiles */
-  height: 200px; /* Match the size of other tiles */
+  width: 300px; /* Full size of the tile */
+  height: 200px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -46,8 +52,8 @@
   width: 300px;
   height: 350px;
   position: absolute;
-  background-color: #000; /* Set to black to match other tiles */
-  color: #ffffff; /* Text color to match your theme */
+  background-color: #000;
+  color: #ffffff;
   border-radius: 20px;
   font-size: 18px;
   left: 50%;
@@ -64,34 +70,10 @@
 /* Responsive styles for tablets */
 @media (max-width: 768px) {
   #contentContainer {
-    width: 70vh;
+    width: 80vw; /* Increase the width to ensure better tile visibility */
     height: 60vh;
-  }
-
-  #carouselContainer {
-    width: 800px;
-    height: 800px;
-  }
-
-  .carouselItem {
-    width: 250px;
-    height: 180px;
-    margin-left: -125px;
-    margin-top: -90px;
-  }
-
-  .carouselItemInner {
-    width: 250px;
-    height: 180px;
-    font-size: 16px; /* Slightly smaller font for readability */
-  }
-}
-
-/* Responsive styles for mobile devices */
-@media (max-width: 480px) {
-  #contentContainer {
-    width: 60vh;
-    height: 50vh;
+    max-width: 85vw; /* Ensure the container doesn't exceed the viewport */
+    max-height: 65vh;
   }
 
   #carouselContainer {
@@ -100,15 +82,44 @@
   }
 
   .carouselItem {
-    width: 200px;
-    height: 150px;
-    margin-left: -100px;
-    margin-top: -75px;
+    width: 250px; /* Keep the tile size decent */
+    height: 180px;
+    margin-left: -125px;
+    margin-top: -90px;
   }
 
   .carouselItemInner {
-    width: 200px;
-    height: 150px;
-    font-size: 14px; /* Smaller font for better fit on small screens */
+    width: 250px;
+    height: 180px;
+    font-size: 16px;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  #contentContainer {
+    width: 95vw; /* Full width to ensure tiles are visible */
+    height: 50vh; /* Adjust height for better visibility */
+    max-width: 95vw; /* Ensure it fits within smaller screens */
+    max-height: 55vh;
+    overflow-x: hidden; /* Prevent any horizontal overflow */
+  }
+
+  #carouselContainer {
+    width: 500px; /* Properly fit the carousel */
+    height: 500px;
+  }
+
+  .carouselItem {
+    width: 220px; /* Slightly reduce tile size for smaller screens */
+    height: 160px;
+    margin-left: -110px;
+    margin-top: -80px;
+  }
+
+  .carouselItemInner {
+    width: 220px;
+    height: 160px;
+    font-size: 14px; /* Maintain readability on smaller screens */
   }
 }

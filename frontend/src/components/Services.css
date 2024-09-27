@@ -16,13 +16,14 @@
 
 .services-container {
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Prevent horizontal scrolling */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 0;
   background-color: #ffffff;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .carousel {
@@ -30,7 +31,9 @@
   align-items: center;
   white-space: nowrap;
   gap: 20px;
-  animation: scroll 30s linear infinite;
+  animation: scroll 30s linear infinite; /* Infinite scroll animation */
+  position: relative;
+  width: max-content; /* Prevents tiles from extending beyond the container */
 }
 
 .service-tile {
@@ -70,7 +73,7 @@
   padding: 8px 0;
 }
 
-/* Animation for infinite scroll */
+/* Animation to create the infinite scroll effect */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -93,7 +96,6 @@
   .service-tile {
     width: 220px;
     height: 180px;
-    margin: 0 10px; /* Adjust spacing between tiles */
   }
 
   .service-image {
@@ -113,12 +115,13 @@
 
   .carousel {
     gap: 10px;
+    justify-content: start; /* Adjust alignment for smaller screens */
   }
 
   .service-tile {
     width: 180px;
     height: 160px;
-    margin: 0 5px; /* Reduce spacing further for small screens */
+    margin-right: 10px; /* Add small margin to prevent tiles from touching */
   }
 
   .service-image {
@@ -127,6 +130,6 @@
 
   .service-title {
     font-size: 12px;
-    padding: 5px 0; /* Adjust padding for a tighter fit */
+    padding: 5px 0;
   }
 }
