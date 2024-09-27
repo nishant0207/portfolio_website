@@ -46,7 +46,7 @@ const Contact = () => {
 
                 <div className="contact-item">
                     <i className="fab fa-github"></i>
-                    <p>GitHub: <a href="https://github.com/ndalal0207" target="_blank" rel="noreferrer">ndalal0207</a></p>
+                    <p>GitHub: <a href="https://github.com/nishant0207" target="_blank" rel="noreferrer">nishant0207</a></p>
                 </div>
 
                 <div className="contact-item">

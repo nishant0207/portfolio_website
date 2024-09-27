@@ -1,0 +1,22 @@
+[
+    {
+      "title": "Full Stack Dev.",
+      "image": "/full_stack_dev.webp"
+    },
+    {
+      "title": "Android Dev.",
+      "image": "/android_dev.webp"
+    },
+    {
+      "title": "Backend Dev.",
+      "image": "/backend_dev.webp"
+    },
+    {
+      "title": "Frontend Dev.",
+      "image": "/frontend_dev.webp"
+    },
+    {
+      "title": "AI Models Dev.",
+      "image": "/ai_model_dev.webp"
+    }
+  ]

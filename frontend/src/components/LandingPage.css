@@ -1,73 +1,114 @@
-/* LandingPage.css */
+/* Landing Page Styles */
 .landing-container {
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center; /* Center text horizontally */
+  text-align: center;
+  background-color: #ffffff; /* Maintain the black background to match the rest of the design */
+  overflow: hidden;
 }
 
-.text-container {
-  position: relative;
+.trans3d {
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+}
+
+#contentContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#carouselContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1000px;
+  height: 1000px;
+  transform: translate(-50%, -50%);
+}
+
+.carouselItem {
+  width: 300px; /* Match the size of other tiles */
+  height: 200px; /* Match the size of other tiles */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -100px;
+  visibility: hidden;
+}
+
+.carouselItemInner {
+  width: 300px;
+  height: 350px;
+  position: absolute;
+  background-color: #000; /* Set to black to match other tiles */
+  color: #ffffff; /* Text color to match your theme */
+  border-radius: 20px;
+  font-size: 18px;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -100px;
+  text-align: center;
   display: flex;
-  flex-direction: column; /* Stack text vertically */
-  align-items: center; /* Center text elements horizontally */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and movement */
+  align-items: center;
+  justify-content: center;
+  text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.35);
 }
 
-.from-text {
-  font-size: 36px;
-  font-style: italic;
-  margin: 0;
-}
-
-.complex-text {
-  font-size: 72px;
-  font-weight: bold;
-  margin: 10px 0; /* Add margin between texts */
-}
-
-.to-text {
-  font-size: 36px;
-  font-style: italic;
-  margin: 0;
-}
-
-.impactful-text {
-  font-size: 72px;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-/* Animation Keyframes */
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+  #contentContainer {
+    width: 70vh;
+    height: 60vh;
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+
+  #carouselContainer {
+    width: 800px;
+    height: 800px;
+  }
+
+  .carouselItem {
+    width: 250px;
+    height: 180px;
+    margin-left: -125px;
+    margin-top: -90px;
+  }
+
+  .carouselItemInner {
+    width: 250px;
+    height: 180px;
+    font-size: 16px; /* Slightly smaller font for readability */
   }
 }
 
-@keyframes slideInFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  #contentContainer {
+    width: 60vh;
+    height: 50vh;
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+
+  #carouselContainer {
+    width: 600px;
+    height: 600px;
   }
-}
 
-.fade-in-left {
-  opacity: 0;
-  animation: slideInFromLeft 1s ease-out forwards;
-}
+  .carouselItem {
+    width: 200px;
+    height: 150px;
+    margin-left: -100px;
+    margin-top: -75px;
+  }
 
-.fade-in-right {
-  opacity: 0;
-  animation: slideInFromRight 1s ease-out forwards;
+  .carouselItemInner {
+    width: 200px;
+    height: 150px;
+    font-size: 14px; /* Smaller font for better fit on small screens */
+  }
 }

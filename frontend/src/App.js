@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Services from "./components/Services";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Skills from "./components/Skills";
@@ -32,6 +33,9 @@ const App = () => {
       </section>
       <section id="projects">
         <Projects />
+      </section>
+      <section id="services">
+        <Services/>
       </section>
       <section id="contact">
         <Contact />
