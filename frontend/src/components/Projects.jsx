@@ -36,14 +36,28 @@ const projectsData = [
     description: 'This project monitors Ethereum blockchain deposits in real-time, stores the deposit details in a MongoDB database, and sends instant Telegram alerts whenever a new deposit is detected. It uses the Alchemy API to interact with the Ethereum blockchain and the ethers.js library to fetch transaction data.',
     techStack: ['Node.js', 'Express.js', 'Ethers.js', 'MongoDB', 'Winston', 'Telegram Bot API', 'Alchemy API'],
     liveDemo: '', // No demo link available
-    github: 'https://github.com/your-github-link-for-think-project', // Add the GitHub repo link here
+    github: 'https://github.com/nishant0207/Ethereum-Transaction-Tracker', // Add the GitHub repo link here
   },
   {
     title: 'File Sharing System Backend',
     description: 'This project implements a file-sharing backend system using Go, AWS S3, PostgreSQL, Redis, JWT-based authentication, and WebSockets for real-time notifications. The system allows users to upload, retrieve, share, search, and delete files securely. It also includes periodic file expiration and deletion functionality.',
     techStack: ['Go', 'PostgreSQL', 'Redis', 'AWS S3', 'JWT', 'WebSockets'],
     liveDemo: '', // No demo link available
-    github: 'https://github.com/your-github-link-for-think-project', // Add the GitHub repo link here
+    github: 'https://github.com/nishant0207/online-filesharing-backend-system'
+  },
+  {
+    title: 'Github Streak Maintaner',
+    description: 'This project implements a backend system which automatically push leetcode solved questions to my github repository to maintain my github streak.',
+    techStack: ['Javascript','Nodejs','Self Ping'],
+    liveDemo: '', // No demo link available
+    github: 'https://github.com/nishant0207/github-streak-bot',
+  },
+  {
+    title: 'Quiz App for NPTEL Exam (Conservation Geography)',
+    description: 'This is a full stack project that uses React for frontend and Node for backend, the questions are fetched from the backend and rendered on frontend based on the week that is requested by the user. Self pinging is implemented to keep the server running 24*7.',
+    techStack: ['Javascript','Nodejs','React','Self Ping'],
+    liveDemo: 'https://conservation-geography.vercel.app/',
+    github: 'https://github.com/nishant0207/github-streak-bot',
   }
 ];
 
