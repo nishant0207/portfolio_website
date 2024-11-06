@@ -38,34 +38,68 @@
 }
 
 .carouselItem {
-  width: 300px; /* Full size of the tile */
-  height: 200px;
+  width: 300px;
+  height: 400px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -150px;
-  margin-top: -100px;
+  margin-left: -125px; /* Centering adjustments */
+  margin-top: -175px;
   visibility: hidden;
 }
 
 .carouselItemInner {
-  width: 300px;
+  width: 250px;
   height: 350px;
   position: absolute;
-  background-color: #000;
+  background-color: #333;
   color: #ffffff;
   border-radius: 20px;
   font-size: 18px;
   left: 50%;
   top: 50%;
-  margin-left: -150px;
-  margin-top: -100px;
+  margin-left: -125px;
+  margin-top: -175px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.35);
 }
+
+.carouselImage {
+  width: 100%;           /* Image takes full width of container */
+  height: 100%;           /* Image height is 60% of the container */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: cover;     /* Ensures image covers the container area without stretching */
+}
+
+.carouselItemInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.carouselItemInner img {
+  width: 100%;
+  max-height: 80%; /* Increased height for portrait format */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+}
+
+.carouselItemInner p {
+  margin: 10px 0;
+  padding: 0 10px;
+  font-size: 18px;       /* Adjusted for text readability */
+  color: #ffffff;
+}
+
 
 /* Responsive styles for tablets */
 @media (max-width: 768px) {
@@ -82,15 +116,30 @@
   }
 
   .carouselItem {
-    width: 250px; /* Keep the tile size decent */
-    height: 180px;
-    margin-left: -125px;
-    margin-top: -90px;
+    width: 200px;
+    height: 300px;
+    margin-left: -100px;
+    margin-top: -150px;
   }
 
+  .carouselImage {
+    width: 100%; /* Make image fill the tile width */
+    height: 60%; /* Adjust height for balance with text */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: cover; /* Maintain image aspect ratio */
+  }
+  
+  .carouselItemInner p {
+    margin: 10px 0; /* Add spacing below the image */
+    padding: 0 10px;
+    font-size: 16px;
+    color: #ffffff;
+  }  
+
   .carouselItemInner {
-    width: 250px;
-    height: 180px;
+    width: 200px;
+    height: 300px;
     font-size: 16px;
   }
 }
@@ -111,15 +160,15 @@
   }
 
   .carouselItem {
-    width: 220px; /* Slightly reduce tile size for smaller screens */
-    height: 160px;
-    margin-left: -110px;
-    margin-top: -80px;
+    width: 200px;
+    height: 280px;
+    margin-left: -90px;
+    margin-top: -140px;
   }
 
   .carouselItemInner {
-    width: 220px;
-    height: 160px;
-    font-size: 14px; /* Maintain readability on smaller screens */
+    width: 200px;
+    height: 280px;
+    font-size: 14px;
   }
 }

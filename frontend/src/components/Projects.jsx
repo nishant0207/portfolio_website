@@ -64,9 +64,9 @@ const projectsData = [
 const Projects = () => {
   return (
     <div className="projects-section">
-      <h1 className="projects-title" style={{ color: 'black' }}>&lt;projects&gt;</h1>
-      {/* Carousel container for projects */}
-      <div className="projects-carousel">
+      <h1 className="projects-title">&lt;projects&gt;</h1>
+      {/* Grid container for projects */}
+      <div className="projects-grid">
         {projectsData.map((project, index) => (
           <div key={index} className="project-card">
             <h3 className="project-title">{project.title}</h3>

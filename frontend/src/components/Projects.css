@@ -1,8 +1,7 @@
-/* Projects.css */
 .projects-section {
   padding: 50px;
   background-color: #ffffff;
-  color: #f4f4f4;
+  color: #333;
   text-align: center;
 }
 
@@ -10,23 +9,17 @@
   font-size: 48px;
   margin-bottom: 50px;
   font-family: 'Courier New', Courier, monospace;
+  color: black;
 }
 
-.projects-carousel {
-  display: flex;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  gap: 20px; /* Space between project tiles */
-  padding: 20px 10px; /* Padding around the carousel */
-  scroll-behavior: smooth; /* Smooth scrolling effect */
-}
-
-.projects-carousel::-webkit-scrollbar {
-  display: none; /* Hide the scrollbar for a cleaner look */
+.projects-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  padding: 0 10px;
 }
 
 .project-card {
-  min-width: 300px; /* Fixed width for each project card */
-  max-width: 300px; /* Ensures all tiles are the same size */
   background-color: #222;
   border-radius: 15px;
   padding: 20px;
@@ -35,7 +28,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 .project-card:hover {
@@ -49,6 +41,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: center;
+  color: #f0a500;
 }
 
 .project-description {
@@ -58,9 +51,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3; /* For Safari */
   -webkit-box-orient: vertical;
+  line-clamp: 3; /* Standard property */
+  color: #f4f4f4;
 }
+
 
 .tech-stack {
   margin-top: 10px;

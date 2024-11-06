@@ -7,7 +7,7 @@ import $ from 'jquery';
 const LandingPage = () => {
   const scrollDirection = useRef(0.1);
   const addX = useRef(0);
-  const isRotating = useRef(true); // To manage the rotation state
+  const isRotating = useRef(true);
 
   const startRotation = useCallback(() => {
     isRotating.current = true;
@@ -63,12 +63,8 @@ const LandingPage = () => {
 
   const handleScroll = useCallback(
     (event) => {
-      if (event.deltaY > 0) {
-        scrollDirection.current = 0.2;
-      } else {
-        scrollDirection.current = -0.2;
-      }
-      startRotation(); // Trigger rotation on scroll
+      scrollDirection.current = event.deltaY > 0 ? 0.2 : -0.2;
+      startRotation();
     },
     [startRotation]
   );
@@ -76,7 +72,7 @@ const LandingPage = () => {
   useEffect(() => {
     initCarousel();
     window.addEventListener('scroll', handleScroll);
-    $('#contentContainer').hover(stopRotation, startRotation); // Stop rotation on hover, resume when mouse leaves
+    $('#contentContainer').hover(stopRotation, startRotation);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -90,29 +86,51 @@ const LandingPage = () => {
       <div id="contentContainer" className="trans3d">
         <section id="carouselContainer" className="trans3d">
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Believe you can and you're halfway there."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/boston-public-library-4yPHCb1SPR4-unsplash.jpg" alt="Inspiration 1" className="carouselImage" />
+              <p>"Believe you can and you're halfway there."</p>
+            </div>
           </figure>
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Your limitation—it's only your imagination."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/boston-public-library-6b2xPLPN6ag-unsplash.jpg" alt="Inspiration 2" className="carouselImage" />
+              <p>"Your limitation—it's only your imagination."</p>
+            </div>
           </figure>
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Push yourself, because no one else is going to do it for you."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/british-library-ayNT6hDhiBw-unsplash.jpg" alt="Inspiration 3" className="carouselImage" />
+              <p>"Push yourself, because no one else is going to do it for you."</p>
+            </div>
           </figure>
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Great things never come from comfort zones."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/british-library-MPecMEHO6xw-unsplash.jpg" alt="Inspiration 4" className="carouselImage" />
+              <p>"Great things never come from comfort zones."</p>
+            </div>
           </figure>
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Success doesn’t just find you. You have to go out and get it."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/british-library-uKvNvTqMs3Q-unsplash.jpg" alt="Inspiration 5" className="carouselImage" />
+              <p>"Success doesn’t just find you. You have to go out and get it."</p>
+            </div>
           </figure>
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Dream it. Wish it. Do it."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/british-library-Z-hDv4LfgXU-unsplash.jpg" alt="Inspiration 6" className="carouselImage" />
+              <p>"Dream it. Wish it. Do it."</p>
+            </div>
           </figure>
           <figure className="carouselItem trans3d">
-            <div className="carouselItemInner trans3d">"Stay positive, work hard, make it happen."</div>
+            <div className="carouselItemInner trans3d">
+              <img src="/tile_images/mcgill-library-osPrIcTwJy4-unsplash.jpg" alt="Inspiration 7" className="carouselImage" />
+              <p>"Stay positive, work hard, make it happen."</p>
+            </div>
           </figure>
         </section>
       </div>
     </div>
+
   );
 };
 
