@@ -34,25 +34,27 @@ const App = () => {
   return (
     <div>
       {loading && <Loader />} {/* Show loader until loading is false */}
-      <Navbar />
-      <section id="home">
-        <LandingPage />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="skills">
-        <Skills />
-      </section>
-      <section id="projects">
-        <Projects />
-      </section>
-      <section id="services">
-        <Services/>
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
+      <div>
+        <Navbar />
+        <section id="home">
+          <LandingPage />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="services">
+          <Services />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </div>
     </div>
   );
 }
