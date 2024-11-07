@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import './Skills.css';
 import axios from 'axios';
-import CertificationTile from './CertificationTile'; // Import the CertificationTile component
+import CertificationTile from './CertificationTile';
 
 const Skills = () => {
   const [leetcodeStats, setLeetcodeStats] = useState(null);
   const [certifications, setCertifications] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // New state for loading
 
   useEffect(() => {
     const fetchLeetCodeStats = async () => {
@@ -16,10 +17,11 @@ const Skills = () => {
         setLeetcodeStats(data);
       } catch (error) {
         console.error('Error fetching LeetCode data:', error);
+      } finally {
+        setIsLoading(false); // Stop loading after data is fetched
       }
     };
 
-    // Fetch certifications data from the JSON file
     const fetchCertifications = async () => {
       try {
         const response = await fetch('/certifications.json');
@@ -40,7 +42,6 @@ const Skills = () => {
 
       <div className="skills-container">
         <h1>Certifications</h1>
-        {/* Carousel Container to enable horizontal scrolling */}
         <div className="carousel-container">
           {certifications.map((cert, index) => (
             <CertificationTile
@@ -54,7 +55,9 @@ const Skills = () => {
       </div>
 
       <h2 className="leetcode-title">LeetCode Stats</h2>
-      {leetcodeStats ? (
+      {isLoading ? (
+        <div className="loader"></div> // Loader displayed during loading
+      ) : leetcodeStats ? (
         <div className="leetcode-container">
           <div className="leetcode-solved">
             <h3>{leetcodeStats.easySolved + leetcodeStats.mediumSolved + leetcodeStats.hardSolved}/3284</h3>
