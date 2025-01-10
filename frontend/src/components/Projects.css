@@ -102,3 +102,11 @@
   background-color: #f0a500;
   color: #111;
 }
+
+
+.project-link-disabled {
+  color: #bdbdbd;
+  font-style: italic;
+  text-decoration: none;
+  cursor: default;
+}

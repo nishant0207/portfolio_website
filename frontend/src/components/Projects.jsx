@@ -1,4 +1,3 @@
-// Projects.jsx
 import React from 'react';
 import './Projects.css';
 
@@ -28,44 +27,75 @@ const projectsData = [
     title: 'Podcast App',
     description: 'An Android podcast application with seamless playback, user authentication via Firebase, and custom UI using Jetpack Compose.',
     techStack: ['Kotlin', 'Jetpack Compose', 'Firebase'],
-    liveDemo: '', // Link to GitHub for this project
+    liveDemo: '',
     github: 'https://github.com/nishant0207/PodKast',
   },
   {
     title: 'Ethereum Transactions Tracker',
     description: 'This project monitors Ethereum blockchain deposits in real-time, stores the deposit details in a MongoDB database, and sends instant Telegram alerts whenever a new deposit is detected. It uses the Alchemy API to interact with the Ethereum blockchain and the ethers.js library to fetch transaction data.',
     techStack: ['Node.js', 'Express.js', 'Ethers.js', 'MongoDB', 'Winston', 'Telegram Bot API', 'Alchemy API'],
-    liveDemo: '', // No demo link available
-    github: 'https://github.com/nishant0207/Ethereum-Transaction-Tracker', // Add the GitHub repo link here
+    liveDemo: '',
+    github: 'https://github.com/nishant0207/Ethereum-Transaction-Tracker',
   },
   {
     title: 'File Sharing System Backend',
-    description: 'This project implements a file-sharing backend system using Go, AWS S3, PostgreSQL, Redis, JWT-based authentication, and WebSockets for real-time notifications. The system allows users to upload, retrieve, share, search, and delete files securely. It also includes periodic file expiration and deletion functionality.',
+    description: 'This project implements a file-sharing backend system using Go, AWS S3, PostgreSQL, Redis, JWT-based authentication, and WebSockets for real-time notifications.',
     techStack: ['Go', 'PostgreSQL', 'Redis', 'AWS S3', 'JWT', 'WebSockets'],
-    liveDemo: '', // No demo link available
-    github: 'https://github.com/nishant0207/online-filesharing-backend-system'
+    liveDemo: '',
+    github: 'https://github.com/nishant0207/online-filesharing-backend-system',
   },
   {
-    title: 'Github Streak Maintaner',
-    description: 'This project implements a backend system which automatically push leetcode solved questions to my github repository to maintain my github streak.',
-    techStack: ['Javascript','Nodejs','Self Ping'],
-    liveDemo: '', // No demo link available
+    title: 'Github Streak Maintainer',
+    description: 'This project implements a backend system which automatically pushes LeetCode solved questions to my GitHub repository to maintain my GitHub streak.',
+    techStack: ['Javascript', 'Nodejs', 'Self Ping'],
+    liveDemo: '',
     github: 'https://github.com/nishant0207/github-streak-bot',
   },
   {
     title: 'Quiz App for NPTEL Exam (Conservation Geography)',
-    description: 'This is a full stack project that uses React for frontend and Node for backend, the questions are fetched from the backend and rendered on frontend based on the week that is requested by the user. Self pinging is implemented to keep the server running 24*7.',
-    techStack: ['Javascript','Nodejs','React','Self Ping'],
+    description: 'A full-stack project using React for the frontend and Node for the backend. Questions are fetched from the backend and rendered dynamically based on the week requested.',
+    techStack: ['Javascript', 'Nodejs', 'React', 'Self Ping'],
     liveDemo: 'https://conservation-geography.vercel.app/',
-    github: 'https://github.com/nishant0207/github-streak-bot',
-  }
+    github: 'https://github.com/nishant0207/conservation-geography-nptel',
+  },
+  {
+    title: 'Campaign Management App',
+    description: 'A web application allowing brands to manage customer relationships, create audience segments, and send personalized campaigns.',
+    techStack: ['Javascript', 'Nodejs', 'Reactjs'],
+    liveDemo: 'https://crm-frontend-ebon-delta.vercel.app/',
+    github: 'https://github.com/nishant0207/CRM-Campaign-Management-App',
+  },
+  {
+    title: 'Fast Dark Mode Extension',
+    description: 'A Chrome extension to enable dark mode for Fast.com, tailored for night-time browsing.',
+    techStack: ['Javascript'],
+    liveDemo: '',
+    github: 'https://github.com/nishant0207/fast-dark-mode',
+  },
+  {
+    title: 'Assignment Management Tool',
+    description: 'A full-stack web application for project managers to assign tasks, track progress, and calculate scores dynamically.',
+    techStack: ['Javascript', 'Reactjs', 'Nodejs'],
+    liveDemo: 'https://assignment-management-tool.vercel.app/',
+    github: 'https://github.com/nishant0207/assignment-management-tool',
+  },
+  {
+    title: 'Slack Rag Bot',
+    description: `
+    - Built a multi-platform bot integrating Slack, LinkedIn, and Discord APIs to automate workflows.
+    - Implemented Slack slash commands for posting on LinkedIn and automated resume generation.
+    - Designed MongoDB-based workflows and developed scalable RESTful APIs with Flask.
+  `,
+    techStack: ['MongoDB', 'Flask', 'Slack API', 'Discord API', 'LinkedIn API'],
+    liveDemo: '',
+    github: 'Private Repository',
+  },
 ];
 
 const Projects = () => {
   return (
     <div className="projects-section">
       <h1 className="projects-title">&lt;projects&gt;</h1>
-      {/* Grid container for projects */}
       <div className="projects-grid">
         {projectsData.map((project, index) => (
           <div key={index} className="project-card">
@@ -77,10 +107,16 @@ const Projects = () => {
               ))}
             </div>
             <div className="project-links">
-              {project.liveDemo && (
+              {project.liveDemo ? (
                 <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="project-link">Live Demo</a>
+              ) : (
+                <span className="project-link-disabled">No Live Demo</span>
               )}
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">GitHub</a>
+              {project.github === 'Private Repository' ? (
+                <span className="project-link-disabled">Private Repository</span>
+              ) : (
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">GitHub</a>
+              )}
             </div>
           </div>
         ))}

@@ -1,276 +1,377 @@
-/* Skills Section */
 .skills-section {
-    padding: 60px;
-    background-color: #ffffff;
-    color: hsl(0, 0%, 0%);
-    font-family: 'Arial', sans-serif;
+  padding: 60px;
+  background-color: #ffffff;
+  color: hsl(0, 0%, 0%);
+  font-family: 'Arial', sans-serif;
 }
 
 .skills-title {
-    font-size: 48px;
-    margin-bottom: 40px;
-    font-family: 'Courier New', Courier, monospace;
-    color: #000;
-    text-align: center;
+  font-size: 48px;
+  margin-bottom: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #000;
+  text-align: center;
 }
 
 .skills-container {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
+/* Basic Skill Styles */
 .skill {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .skill-name {
-    font-size: 20px; /* Increased for readability */
-    margin-bottom: 10px;
-    font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .skill-bar {
-    width: 100%;
-    max-width: 400px; /* Increased width */
-    background-color: #333;
-    border-radius: 20px; /* Softer, more rounded corners */
-    overflow: hidden;
-    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.7); /* Darker inner shadow */
+  width: 100%;
+  max-width: 400px;
+  background-color: #333;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.7);
 }
 
 .skill-level {
-    height: 30px; /* Slightly taller bars */
-    background-color: #f0a500;
-    border-radius: 20px;
-    text-align: right;
-    padding-right: 10px;
-    color: #111;
-    font-weight: bold;
-    line-height: 30px; /* Vertically center the percentage text */
+  height: 30px;
+  background-color: #f0a500;
+  border-radius: 20px;
+  text-align: right;
+  padding-right: 10px;
+  color: #111;
+  font-weight: bold;
+  line-height: 30px;
 }
 
 /* LeetCode Stats Section */
 .leetcode-title {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #000000;
-    text-align: center;
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 30px;
+  color: #000000;
+  text-align: center;
 }
 
 .leetcode-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    background-color: #222;
-    padding: 30px; /* More padding for better spacing */
-    border-radius: 20px; /* Softer rounded edges */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Darker outer shadow */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #222;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
 }
 
 .leetcode-solved,
 .leetcode-difficulty,
 .leetcode-badges,
 .leetcode-submissions {
-    padding: 15px;
-    background-color: #333;
-    border-radius: 15px; /* Softer corners */
-    flex: 1; /* Ensures equal flex grow for all */
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for each box */
-    transition: transform 0.2s ease; /* Smooth transition */
-    min-height: 100px; /* Ensures consistent height */
-    max-height: 100px; /* Fixes height across all */
+  padding: 15px;
+  background-color: #333;
+  border-radius: 15px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+  min-height: 100px;
+  max-height: 100px;
 }
 
 .leetcode-solved,
 .leetcode-difficulty {
-    flex-basis: 45%; /* Ensures both have the same width */
+  flex-basis: 45%;
 }
 
 .leetcode-badges,
 .leetcode-submissions {
-    flex-basis: 45%; /* Keep similar sizes as the other boxes */
+  flex-basis: 45%;
 }
 
 .leetcode-solved:hover,
 .leetcode-difficulty:hover,
 .leetcode-badges:hover,
 .leetcode-submissions:hover {
-    transform: scale(1.05); /* Slight scale up on hover */
+  transform: scale(1.05);
 }
 
 .leetcode-solved h3,
 .leetcode-badges h3,
 .leetcode-submissions h3 {
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .leetcode-solved p,
 .leetcode-difficulty p,
 .leetcode-badges p,
 .leetcode-submissions p {
-    color: #aaa;
-    margin: 5px 0;
+  color: #aaa;
+  margin: 5px 0;
 }
 
+/* Difficulty Colors */
 .easy {
-    color: #00ff99;
+  color: #00ff99;
 }
 
 .medium {
-    color: #ffcc00;
+  color: #ffcc00;
 }
 
 .hard {
-    color: #ff6666;
+  color: #ff6666;
 }
 
-/* Progress bar styling for submissions */
-.leetcode-submissions {
-    position: relative;
-}
-
-.leetcode-submissions-bar {
-    width: 100%;
-    height: 25px;
-    background-color: #444;
-    border-radius: 15px; /* Softer corners */
-    position: relative;
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.leetcode-submissions-progress {
-    height: 100%;
-    background-color: #00ff99;
-    border-radius: 15px; /* Softer rounded corners */
-    transition: width 0.5s ease-in-out;
-}
-
-.react-calendar-heatmap .color-empty {
-    fill: #ebedf0;
-}
-
-.react-calendar-heatmap .color-scale-1 {
-    fill: #9be9a8;
-}
-
-.react-calendar-heatmap .color-scale-2 {
-    fill: #40c463;
-}
-
-.react-calendar-heatmap .color-scale-3 {
-    fill: #30a14e;
-}
-
-.react-calendar-heatmap .color-scale-4 {
-    fill: #216e39;
-}
-
-.submissions-title {
-    margin-top: 40px;
-    font-size: 24px;
-    color: #f0a500;
-}
-
-
-/* responsive certificates tile */
-
-/* Skills.css */
-.certification-tiles-container {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-
-  /* Skills.css */
-
+/* Loader */
 .loader {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #4CAF50; /* You can change color as per your theme */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #4CAF50;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
   }
+}
 
-  
+/* Heatmap Styles */
+.heatmap-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: auto; /* Adjust height if necessary */
+}
 
+.heatmap-section {
+  margin-top: 50px;
+  align-content: center;
+  margin-left: 15%;
+  width: 65vw;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-/* Responsive */
-/* Responsive adjustments */
+.heatmap-outer-wrapper {
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.heatmap-wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.day-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 8px;
+}
+
+.day-label {
+  color: #959494;
+  font-size: 9px;
+  height: 15px;
+  line-height: 15px;
+  text-align: left;
+}
+
+.heatmap-scrollable {
+  overflow-x: auto;
+  flex-grow: 1;
+  padding-bottom: 16px;
+}
+
+.contribution-graph {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-gap: 4px;
+  justify-content: center;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.graph-wrapper {
+  min-height: 112px;
+}
+
+.graph-column {
+  display: grid;
+  grid-gap: 4px;
+  grid-template-rows: repeat(7, 1fr);
+  position: relative;
+}
+
+/* Heatmap Tiles */
+.heatmap-tile {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: #ebedf0;
+  border: 0;
+  outline: 1px solid rgba(27, 31, 35, 0.06);
+  outline-offset: -1px;
+}
+
+.heatmap-tile:hover {
+  stroke: #000;
+  stroke-width: 1px;
+  outline: 1px solid rgba(27, 31, 35, 0.3);
+}
+
+/* Refined color palette to match LeetCode exactly */
+.tile-empty {
+  background-color: #ebedf0;
+}
+
+.tile-level-1 {
+  background-color: #9be9a8;
+}
+
+.tile-level-2 {
+  background-color: #40c463;
+}
+
+.tile-level-3 {
+  background-color: #30a14e;
+}
+
+.tile-level-4 {
+  background-color: #216e39;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .leetcode-container {
-        flex-direction: column;
-        gap: 15px; /* Reduced gap for smaller screens */
-        padding: 20px; /* Adjust padding for smaller screen sizes */
-        align-items: center; /* Center align the items */
-    }
+  .leetcode-container {
+    flex-direction: column;
+    gap: 20px; /* Increased spacing for better separation */
+    padding: 20px;
+    align-items: center;
+  }
 
-    .skills-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px; /* Add padding for smaller screens */
+  }
 
-    .skill-bar {
-        width: 100%;
-        max-width: 100%;
-    }
+  .skill-bar {
+    width: 100%;
+    max-width: 100%;
+    height: 20px; /* Adjust height for smaller screens */
+  }
 
-    .leetcode-solved,
-    .leetcode-difficulty,
-    .leetcode-badges,
-    .leetcode-submissions {
-        min-height: auto; /* Adjust height for small screens */
-        max-height: auto;
-        width: 90%; /* Set width to make it responsive */
-    }
+  .leetcode-solved,
+  .leetcode-difficulty,
+  .leetcode-badges,
+  .leetcode-submissions {
+    min-height: auto;
+    max-height: auto;
+    width: 100%; /* Make full width for better spacing */
+    margin-bottom: 10px; /* Add margin for better spacing */
+  }
+
+  .heatmap-wrapper {
+    flex-direction: column;
+    gap: 12px; /* Add space between rows for clarity */
+    padding: 10px 0; /* Add padding for better alignment */
+  }
+
+  .day-labels {
+    flex-direction: row;
+    padding-top: 0;
+    padding-bottom: 4px;
+    width: auto;
+    justify-content: space-between;
+    margin-left: 0; /* Remove unnecessary left margin */
+  }
+
+  .day-label {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    height: auto;
+    min-height: 18px;
+    font-size: 8px; /* Reduce font size for smaller screens */
+  }
+
+  .heatmap-tile {
+    width: 12px; /* Increase tile size for better visibility */
+    height: 12px;
+  }
+
+  .month-label {
+    font-size: 8px;
+    margin-top: 4px; /* Ensure it’s visible and spaced properly */
+  }
 }
 
 @media (max-width: 480px) {
-    .skills-title {
-        font-size: 36px;
-    }
+  .skills-title {
+    font-size: 32px; /* Reduce font size for better fit */
+    margin-bottom: 20px;
+  }
 
-    .skill-name {
-        font-size: 16px;
-    }
+  .skill-name {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    margin-bottom: 8px;
+  }
 
-    .skill-bar {
-        height: 20px;
-    }
+  .skill-bar {
+    height: 15px; /* Reduce height for better spacing */
+  }
 
-    .leetcode-solved h3,
-    .leetcode-badges h3,
-    .leetcode-submissions h3 {
-        font-size: 20px;
-    }
+  .leetcode-solved h3,
+  .leetcode-badges h3,
+  .leetcode-submissions h3 {
+    font-size: 18px; /* Reduce font size for readability */
+  }
 
-    .leetcode-container {
-        padding: 15px; /* Reduce padding for very small screens */
-    }
+  .leetcode-container {
+    padding: 10px; /* Reduce padding for smaller screens */
+    gap: 15px; /* Adjust spacing */
+  }
 
-    .leetcode-solved,
-    .leetcode-difficulty {
-        flex: none; /* Reset flex property for stacking correctly */
-        width: 100%; /* Full width on mobile */
-        margin-bottom: 10px; /* Add spacing between blocks */
-    }
+  .leetcode-solved,
+  .leetcode-difficulty {
+    flex: none;
+    width: 100%; /* Take full width for better layout */
+    margin-bottom: 10px;
+  }
+
+  .heatmap-wrapper {
+    flex-direction: column;
+    padding: 0;
+    gap: 8px; /* Add gap for better clarity */
+  }
+
+  .heatmap-tile {
+    width: 10px; /* Adjust tile size */
+    height: 10px;
+  }
+
+  .month-label {
+    font-size: 6px; /* Reduce font size for smaller screens */
+    margin-top: 2px; /* Adjust margin */
+  }
 }
