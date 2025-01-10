@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Skills.css';
 import axios from 'axios';
 import CertificationTile from './CertificationTile';
+import Loader from "./Loader"
 
 const Skills = () => {
   const [leetcodeStats, setLeetcodeStats] = useState(null);
@@ -138,7 +139,7 @@ const Skills = () => {
 
       <h2 className="leetcode-title">&lt;leetcode stats&gt;</h2>
       {isLoading ? (
-        <div className="loader"></div>
+        <Loader/>
       ) : leetcodeStats ? (
         <>
           <div className="leetcode-container">
@@ -165,7 +166,7 @@ const Skills = () => {
           </div>
         </>
       ) : (
-        <div>
+        <div className="heatmap-container">
           <p>Loading LeetCode Stats...</p>
         </div>
       )}
