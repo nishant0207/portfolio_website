@@ -10,6 +10,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Skills from "./components/Skills";
 import Loader from './components/Loader'; // Import Loader component
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const App = () => {
   const [loading, setLoading] = useState(true);

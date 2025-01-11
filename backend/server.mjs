@@ -2,7 +2,6 @@
 import express from 'express';
 import axios from 'axios';
 import cors from 'cors';
-import { time } from 'console';
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -14,7 +13,7 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 app.use(cors());
 app.use(express.json()); // To parse JSON request bodies
 
-// Endpoint to fetch LeetCode stats and submission heatmap
+// Endpoint to fetch LeetCode stats
 app.get('/api/leetcode-stats', async (req, res) => {
   const query = `
     query getUserProfile($username: String!) {
@@ -26,14 +25,13 @@ app.get('/api/leetcode-stats', async (req, res) => {
             count
           }
         }
-        submissionCalendar
       }
     }
   `;
   const variables = { username: 'dalalnishant0207' };
 
   try {
-    console.log(`Fetching data from leetcode.`)
+    console.log(`Fetching data from LeetCode.`);
     const response = await axios.post(
       'https://leetcode.com/graphql',
       { query, variables },
@@ -53,37 +51,75 @@ app.get('/api/leetcode-stats', async (req, res) => {
 
     const acSubmissionNum = data.submitStatsGlobal.acSubmissionNum;
 
-    // Parse submissionCalendar to return daily submissions
-    const submissionCalendar = data.submissionCalendar;
-    const dailySubmissions = Object.entries(JSON.parse(submissionCalendar || '{}')).map(
-      ([date, count]) => ({
-        date: new Date(parseInt(date) * 1000).toISOString().split('T')[0], // Convert timestamp to YYYY-MM-DD
-        count: parseInt(count),
-      })
-    );
-
     res.json({
       username: data.username,
       easySolved: acSubmissionNum[1]?.count || 0,
       mediumSolved: acSubmissionNum[2]?.count || 0,
       hardSolved: acSubmissionNum[3]?.count || 0,
       totalSolved: acSubmissionNum[0]?.count || 0,
-      submissions: dailySubmissions,
     });
 
-    console.log("Data Fetched and sent to frontend.")
-    
+    console.log("Data fetched and sent to frontend.");
   } catch (error) {
     console.error('Error fetching LeetCode data:', error.response?.data || error.message);
     res.status(500).send('Error fetching LeetCode data. Please check the query structure and user existence.');
   }
 });
 
+// Endpoint to fetch GitHub heatmap data
+app.get('/api/github-heatmap', async (req, res) => {
+  const username = req.query.username; // Get GitHub username from query parameters
+  const year = req.query.year; // Get the year, default to the current year
+
+  if (!username) {
+    return res.status(400).send({ error: 'GitHub username is required.' });
+  }
+
+  try {
+    if (year) {
+      // Fetch contributions for a specific year
+      console.log(`Fetching GitHub contributions for ${username} in ${year}.`);
+      const response = await axios.get(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`);
+      const contributions = response.data.contributions;
+
+      const transformedData = contributions.reduce((acc, day) => {
+        acc[day.date] = day.count;
+        return acc;
+      }, {});
+
+      res.status(200).send(transformedData);
+    } else {
+      // Fetch contributions for the last 12 months
+      console.log(`Fetching GitHub contributions for the past year for ${username}.`);
+      const today = new Date();
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(today.getFullYear() - 1);
+
+      const response = await axios.get(`https://github-contributions-api.jogruber.de/v4/${username}`);
+      const contributions = response.data.contributions;
+
+      // Filter contributions to include only those within the last 12 months
+      const transformedData = contributions.reduce((acc, day) => {
+        const dayDate = new Date(day.date);
+        if (dayDate >= oneYearAgo && dayDate <= today) {
+          acc[day.date] = day.count;
+        }
+        return acc;
+      }, {});
+
+      res.status(200).send(transformedData);
+    }
+  } catch (error) {
+    console.error('Error fetching GitHub contributions:', error.response?.data || error.message);
+    res.status(500).send({ error: 'Failed to fetch GitHub contributions data.' });
+  }
+});
+
+
 // Endpoint to send message to Telegram Bot
 app.post('/api/send-message', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Constructing the message to be sent to Telegram
   const telegramMessage = `
 📬 New Contact Form Submission:
 - 📛 Name: ${name}
@@ -92,7 +128,6 @@ app.post('/api/send-message', async (req, res) => {
   `;
 
   try {
-    // Sending message to Telegram using the Bot API
     await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       chat_id: TELEGRAM_CHAT_ID,
       text: telegramMessage,

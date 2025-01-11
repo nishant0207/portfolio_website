@@ -1,11 +1,9 @@
-// Services.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import './Services.css';
 
 const Services = () => {
   const [services, setServices] = useState([]);
   const carouselRef = useRef(null);
-  const animationRef = useRef(null);
 
   // Fetch services data from JSON file
   useEffect(() => {
@@ -22,37 +20,25 @@ const Services = () => {
     fetchServices();
   }, []);
 
-  // Function to start animation
-  const startAnimation = () => {
-    const scrollAmount = carouselRef.current.scrollWidth / 10; // Adjust speed by changing the division
-    animationRef.current = setInterval(() => {
-      if (carouselRef.current) {
-        carouselRef.current.scrollLeft += scrollAmount;
-        // Reset scroll when reaching the end
-        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth / 2) {
-          carouselRef.current.scrollLeft = 0;
-        }
-      }
-    }, 100); // Adjust the interval for smoother or faster movement
-  };
-
-  // Function to stop animation on hover
-  const stopAnimation = () => {
-    clearInterval(animationRef.current);
+  // Function to create an infinite scroll effect
+  const infiniteScroll = () => {
+    const scrollElement = carouselRef.current;
+    if (scrollElement.scrollLeft >= scrollElement.scrollWidth / 2) {
+      scrollElement.scrollLeft = 0;
+    } else {
+      scrollElement.scrollLeft += 1; // Adjust the increment for smoother or faster scrolling
+    }
   };
 
   useEffect(() => {
-    startAnimation();
-
-    return () => {
-      clearInterval(animationRef.current);
-    };
+    const interval = setInterval(infiniteScroll, 10); // Adjust interval for smooth scrolling
+    return () => clearInterval(interval); // Clean up interval on component unmount
   }, []);
 
   return (
     <div className="services-section">
       <h1 className="services-title">&lt;services&gt;</h1>
-      <div className="services-container" onMouseEnter={stopAnimation} onMouseLeave={startAnimation}>
+      <div className="services-container">
         <div className="carousel" ref={carouselRef}>
           {services.concat(services).map((service, index) => (
             <div className="service-tile" key={index}>

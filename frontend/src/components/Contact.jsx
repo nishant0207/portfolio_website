@@ -17,7 +17,6 @@ const Contact = () => {
         setStatus('Sending...');
 
         try {
-            // Replace with your backend server URL
             const response = await axios.post('https://portfolio-website-backend-dhfz.onrender.com/api/send-message', formData);
             if (response.data.success) {
                 setStatus('Message sent successfully!');
@@ -45,6 +44,11 @@ const Contact = () => {
                 </div>
 
                 <div className="contact-item">
+                    <i className="fas fa-code"></i>
+                    <p><a href="https://leetcode.com/dalalnishant0207" target='_blank' rel='noopener noreferrer'  download>LeetCode</a></p>
+                </div>
+
+                <div className="contact-item">
                     <i className="fab fa-github"></i>
                     <p>GitHub: <a href="https://github.com/nishant0207" target="_blank" rel="noreferrer">nishant0207</a></p>
                 </div>
@@ -56,14 +60,14 @@ const Contact = () => {
 
                 <div className="contact-item">
                     <i className="fas fa-file-download"></i>
-                    <p><a href="https://drive.google.com/file/d/1mIzcIVA2mHREWk9Jxvk72-7zScg7ZNqR/view?usp=sharing" target='_blank' rel='noopener noreferrer'  download>Download Resume</a></p>
+                    <p><a href="https://drive.google.com/file/d/1u71RKnS_amkadfQaJLh2m_daQxFcWu9H/view?usp=sharing" target='_blank' rel='noopener noreferrer'  download>Download Resume</a></p>
                 </div>
             </div>
 
             <form className="contact-form" onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
                 <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-                <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required></textarea>
+                <textarea style={{maxWidth:"100%", minHeight:"100px"}} name="message" placeholder="Slide into my DMs… but make it professional. Or just send me memes, either way works. 📩" value={formData.message} onChange={handleChange} required></textarea>
                 <button type="submit">Send Message</button>
                 {status && <p>{status}</p>} {/* Status message */}
             </form>

@@ -1,4 +1,3 @@
-// About.jsx
 import React from 'react';
 import './About.css';
 
@@ -8,21 +7,23 @@ const About = () => {
       <h1 className="about-title">&lt;about&gt;</h1>
       <div className="about-content">
         <div className="about-text">
-          <p className="intro-text">
-            I'm a <span>Full Stack Developer</span> with experience in creating <span>high-performance, scalable</span> applications. 
-            I work with a diverse set of tools, including <span>Java, React, Node.js</span>, and other modern web technologies.
-          </p>
           <p>
-            Over the course of my career, I have developed a solid understanding of <span>REST APIs, cloud-based systems</span>, and 
-            improving performance metrics for enterprise applications. My code is always hand-crafted to ensure optimal performance 
-            across devices and platforms.
+            I am a <span>Full Stack Developer</span> with experience in building
+            <span> high-performance, scalable</span> web applications using <span>React</span>, <span>Node.js</span>,
+            <span> Flask</span>, <span>MongoDB</span>, <span>AWS</span>, and other modern technologies.
           </p>
+          <div className="work-experience" style={{display:"flex"}}>
+            <h1 style={{ display: 'inline-block', marginRight: '10px' }}>Work Experience:</h1>
+            <p style={{ display: 'inline-block' }}>
+              Full Stack Developer Intern<span style={{ display: 'block' }}>Neugence Technology</span>
+              <span style={{ display: 'block', fontSize: '14px', color: 'gray' }}>May 2025 - Current</span>
+            </p>
+          </div>
           <p>
-            I strive to push the boundaries of what's possible in web development, while maintaining the highest standards of 
-            <span> usability</span> and <span>browser compatibility</span>.
+            I enjoy solving complex problems and have built a lot of projects, showcasing my expertise in SaaS solutions, blockchain, and cloud integration.
           </p>
+          <p>Scroll down to see more...</p>
         </div>
-
         <div className="about-image-container">
           <img src="image.jpg" alt="Nishant Dalal" className="about-image" />
         </div>

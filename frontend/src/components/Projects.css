@@ -1,7 +1,7 @@
 .projects-section {
   padding: 50px;
-  background-color: #ffffff;
-  color: #333;
+  background-color: #111; /* Dark background */
+  color: #eaeaea; /* Light text color */
   text-align: center;
 }
 
@@ -9,7 +9,7 @@
   font-size: 48px;
   margin-bottom: 50px;
   font-family: 'Courier New', Courier, monospace;
-  color: black;
+  color: rgba(192, 132, 245, 0.92); /* Vibrant title color */
 }
 
 .projects-grid {
@@ -20,10 +20,10 @@
 }
 
 .project-card {
-  background-color: #222;
+  background-color: #222; /* Slightly lighter than background */
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5); /* Stronger shadow for dark theme */
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: center;
-  color: #f0a500;
+  color: rgba(173, 89, 246, 0.88); /* Softer vibrant title */
 }
 
 .project-description {
@@ -54,9 +54,8 @@
   -webkit-line-clamp: 3; /* For Safari */
   -webkit-box-orient: vertical;
   line-clamp: 3; /* Standard property */
-  color: #f4f4f4;
+  color: #eaeaea; /* Light text for contrast */
 }
-
 
 .tech-stack {
   margin-top: 10px;
@@ -66,8 +65,8 @@
 }
 
 .tech-item {
-  background-color: #f0a500;
-  color: #111;
+  background-color: rgba(134, 32, 224, 0.76); /* Strong vibrant color */
+  color: #111; /* Dark text on vibrant background */
   padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
@@ -75,8 +74,8 @@
 }
 
 .tech-item:hover {
-  background-color: #111;
-  color: #f0a500;
+  background-color: #111; /* Revert to dark background */
+  color: rgba(162, 63, 248, 0.76); /* Vibrant color for hover text */
 }
 
 .project-links {
@@ -88,8 +87,8 @@
 
 .project-link {
   text-decoration: none;
-  color: #f0a500;
-  border: 2px solid #f0a500;
+  color: rgba(174, 81, 255, 0.808); /* Subtle vibrant color */
+  border: 2px solid rgba(135, 39, 219, 0.882); /* Matches text color */
   padding: 5px 10px;
   border-radius: 25px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -99,13 +98,12 @@
 }
 
 .project-link:hover {
-  background-color: #f0a500;
-  color: #111;
+  background-color: rgba(85, 0, 159, 0.92); /* Background matches hover color */
+  color: "white"; /* Dark text on vibrant background */
 }
 
-
 .project-link-disabled {
-  color: #bdbdbd;
+  color: #858585; /* Subtle gray for disabled links */
   font-style: italic;
   text-decoration: none;
   cursor: default;

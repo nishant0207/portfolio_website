@@ -1,5 +1,4 @@
 // CertificationTile.js
-// CertificationTile.js
 import React from 'react';
 import './CertificationTile.css'; // Import the updated CSS
 

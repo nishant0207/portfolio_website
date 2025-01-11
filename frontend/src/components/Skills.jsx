@@ -1,8 +1,11 @@
+// Skills.jsx
 import React, { useEffect, useState } from 'react';
 import './Skills.css';
 import axios from 'axios';
 import CertificationTile from './CertificationTile';
 import Loader from "./Loader"
+import LeetCodeCalendar from 'leetcode-calendar'
+import GithubHeatmap from './GithubHeatmap';
 
 const Skills = () => {
   const [leetcodeStats, setLeetcodeStats] = useState(null);
@@ -33,90 +36,24 @@ const Skills = () => {
 
     fetchLeetCodeStats();
     fetchCertifications();
+
   }, []);
 
-  const renderHeatmapTiles = (submissions) => {
-    const submissionMap = new Map(submissions.map(({ date, count }) => [date, count]));
-    const endDate = new Date(); // Current date
-    const startDate = new Date();
-    startDate.setFullYear(endDate.getFullYear() - 1); // Start date is 1 year ago from today
-    const weeks = [];
-    const monthLabels = [];
-  
-    let currentMonth = -1;
-    for (
-      let date = new Date(startDate);
-      date <= endDate;
-      date.setDate(date.getDate() + 1)
-    ) {
-      const formattedDate = date.toISOString().split('T')[0];
-      const submissionCount = submissionMap.get(formattedDate) || 0;
-      const month = date.getMonth();
-  
-      const colorClass =
-        submissionCount > 3
-          ? 'tile-level-4'
-          : submissionCount > 2
-          ? 'tile-level-3'
-          : submissionCount > 1
-          ? 'tile-level-2'
-          : submissionCount > 0
-          ? 'tile-level-1'
-          : '';
-  
-      const weekIndex = Math.floor(
-        (date - startDate) / (7 * 24 * 60 * 60 * 1000)
-      );
-  
-      if (!weeks[weekIndex]) weeks[weekIndex] = [];
-  
-      weeks[weekIndex].push(
-        <div
-          key={formattedDate}
-          className={`heatmap-tile ${colorClass}`}
-          data-count={submissionCount}
-          data-date={formattedDate}
-        ></div>
-      );
-  
-      // Add month label at the start of each month and mark columns
-      if (month !== currentMonth) {
-        currentMonth = month;
-        monthLabels[weekIndex] = date.toLocaleString('default', { month: 'short' });
-        // Mark the first week of the new month
-        weeks[weekIndex].isNewMonth = true;
-      }
-    }
-  
-    const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-      <div key={day} className="day-label">
-        {day}
-      </div>
-    ));
-  
-    return (
-      <div className="heatmap-outer-wrapper">
-        <div className="heatmap-wrapper">
-          <div className="day-labels">{dayLabels}</div>
-          <div className="heatmap-scrollable">
-            <div className="graph-wrapper">
-              <div className="contribution-graph">
-                {weeks.map((week, index) => (
-                  <div
-                    key={index}
-                    className={`graph-column ${
-                      week.isNewMonth ? 'new-month' : ''
-                    }`}
-                  >
-                    {week.map((day) => day)}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  const exampleTheme = {
+    light: [
+      'rgb(235, 235, 235)',
+      'rgba(192, 132, 245, 0.44)',
+      'rgba(192, 132, 245, 0.6)',
+      'rgba(192, 132, 245, 0.76)',
+      'rgba(192, 132, 245, 0.92)',
+    ],
+    dark: [
+      'rgb(235, 235, 235)',
+      'rgba(192, 132, 245, 0.44)',
+      'rgba(192, 132, 245, 0.6)',
+      'rgba(192, 132, 245, 0.76)',
+      'rgba(192, 132, 245, 0.92)',
+    ],
   };
 
   return (
@@ -124,7 +61,7 @@ const Skills = () => {
       <h1 className="skills-title">&lt;skills&gt;</h1>
 
       <div className="skills-container">
-        <h1>Certifications</h1>
+        <h1 style={{fontFamily:"Courier New"}}>&lt;Certifications/&gt;</h1>
         <div className="carousel-container">
           {certifications.map((cert, index) => (
             <CertificationTile
@@ -139,7 +76,7 @@ const Skills = () => {
 
       <h2 className="leetcode-title">&lt;leetcode stats&gt;</h2>
       {isLoading ? (
-        <Loader/>
+        <Loader />
       ) : leetcodeStats ? (
         <>
           <div className="leetcode-container">
@@ -159,10 +96,25 @@ const Skills = () => {
               </p>
             </div>
           </div>
-          <div className="heatmap-container">
-            <div className="heatmap-section">
-              {renderHeatmapTiles(leetcodeStats.submissions)}
-            </div>
+          <div
+            style={{
+              display: 'flex', // Use flexbox
+              justifyContent: 'center', // Center horizontally
+              alignItems: 'center', // Center vertically
+              width: '90vw',
+              marginTop: "150px",
+              overflowX: "auto",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <LeetCodeCalendar
+              username="dalalnishant0207"
+              blockSize={18} // Size of each block in pixels (default: 15)
+              blockMargin={5} // Margin between blocks in pixels (default: 5)
+              fontSize={18} // Font size of the text within blocks (default: 16)
+              theme={exampleTheme} // A custom theme object to style the calendar
+              style={{ maxWidth: '1500px' }} // Inline styles for the calendar container
+            />
           </div>
         </>
       ) : (
@@ -170,6 +122,9 @@ const Skills = () => {
           <p>Loading LeetCode Stats...</p>
         </div>
       )}
+      <div className='heatmap-outer-container'>
+        <GithubHeatmap/>
+      </div>
     </div>
   );
 };

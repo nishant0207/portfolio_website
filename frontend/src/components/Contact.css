@@ -84,7 +84,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #000; /* Dark button background to match the vibe */
+  background-color: #333; /* Dark button background to match the vibe */
   color: #fff; /* White text for contrast */
   font-size: 16px;
   cursor: pointer;
