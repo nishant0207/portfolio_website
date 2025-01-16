@@ -9,7 +9,7 @@
   font-size: 48px;
   margin-bottom: 50px;
   font-family: 'Courier New', Courier, monospace;
-  color: rgba(192, 132, 245, 0.92); /* Vibrant title color */
+  color: #f4f4f4; /* Vibrant title color */
 }
 
 .projects-grid {

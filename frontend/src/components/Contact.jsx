@@ -41,7 +41,7 @@ const Contact = () => {
 
                 <div className="contact-item">
                     <i className="fab fa-linkedin"></i>
-                    <p>LinkedIn: <a href="https://www.linkedin.com/in/ndalal0207/" target="_blank" rel="noreferrer">ndalal0207</a></p>
+                    <p><a href="https://www.linkedin.com/in/ndalal0207/" target="_blank" rel="noreferrer">LinkedIn</a></p>
                 </div>
 
                 <div className="contact-item">
@@ -51,7 +51,7 @@ const Contact = () => {
 
                 <div className="contact-item">
                     <i className="fab fa-github"></i>
-                    <p>GitHub: <a href="https://github.com/nishant0207" target="_blank" rel="noreferrer">nishant0207</a></p>
+                    <p><a href="https://github.com/nishant0207" target="_blank" rel="noreferrer">GitHub</a></p>
                 </div>
 
                 <div className="contact-item">
@@ -61,7 +61,7 @@ const Contact = () => {
 
                 <div className="contact-item">
                     <i className="fas fa-file-download"></i>
-                    <p><a href="https://drive.google.com/file/d/1u71RKnS_amkadfQaJLh2m_daQxFcWu9H/view?usp=sharing" target='_blank' rel='noopener noreferrer'  download>Download Resume</a></p>
+                    <p><a href="https://drive.google.com/file/d/1u71RKnS_amkadfQaJLh2m_daQxFcWu9H/view?usp=sharing" target='_blank' rel='noopener noreferrer'  download>Resume</a></p>
                 </div>
             </div>
 
