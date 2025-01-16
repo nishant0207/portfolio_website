@@ -116,6 +116,32 @@ app.get('/api/github-heatmap', async (req, res) => {
 });
 
 
+app.use((req, res, next) => {
+  let requestSize = parseInt(req.headers['content-length'] || '0', 10);
+
+  let responseSize = 0;
+  const originalWrite = res.write;
+  const originalEnd = res.end;
+
+  const chunks = [];
+
+  res.write = function (chunk, ...args) {
+    chunks.push(chunk);
+    return originalWrite.apply(res, [chunk, ...args]);
+  };
+
+  res.end = function (chunk, ...args) {
+    if (chunk) chunks.push(chunk);
+    responseSize = Buffer.concat(chunks).length;
+    console.log(`[Data Usage] Request Size: ${requestSize} bytes`);
+    console.log(`[Data Usage] Response Size: ${responseSize} bytes`);
+    console.log(`[Data Usage] Total Size: ${requestSize + responseSize} bytes`);
+    return originalEnd.apply(res, [chunk, ...args]);
+  };
+
+  next();
+});
+
 // Endpoint to send message to Telegram Bot
 app.post('/api/send-message', async (req, res) => {
   const { name, email, message } = req.body;
