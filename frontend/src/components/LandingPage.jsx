@@ -87,43 +87,43 @@ const LandingPage = () => {
         <section id="carouselContainer" className="trans3d">
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/boston-public-library-4yPHCb1SPR4-unsplash.jpg" alt="Inspiration 1" className="carouselImage" />
+              <img src="/tile_images/boston-public-library-4yPHCb1SPR4-unsplash.webp" alt="Inspiration 1" className="carouselImage" />
               <p>"Believe you can and you're halfway there."</p>
             </div>
           </figure>
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/boston-public-library-6b2xPLPN6ag-unsplash.jpg" alt="Inspiration 2" className="carouselImage" />
+              <img src="/tile_images/boston-public-library-6b2xPLPN6ag-unsplash.webp" alt="Inspiration 2" className="carouselImage" />
               <p>"Your limitation—it's only your imagination."</p>
             </div>
           </figure>
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/british-library-ayNT6hDhiBw-unsplash.jpg" alt="Inspiration 3" className="carouselImage" />
+              <img src="/tile_images/british-library-ayNT6hDhiBw-unsplash.webp" alt="Inspiration 3" className="carouselImage" />
               <p>"Push yourself, because no one else is going to do it for you."</p>
             </div>
           </figure>
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/british-library-MPecMEHO6xw-unsplash.jpg" alt="Inspiration 4" className="carouselImage" />
+              <img src="/tile_images/british-library-MPecMEHO6xw-unsplash.webp" alt="Inspiration 4" className="carouselImage" />
               <p>"Great things never come from comfort zones."</p>
             </div>
           </figure>
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/british-library-uKvNvTqMs3Q-unsplash.jpg" alt="Inspiration 5" className="carouselImage" />
+              <img src="/tile_images/british-library-uKvNvTqMs3Q-unsplash.webp" alt="Inspiration 5" className="carouselImage" />
               <p>"Success doesn’t just find you. You have to go out and get it."</p>
             </div>
           </figure>
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/british-library-Z-hDv4LfgXU-unsplash.jpg" alt="Inspiration 6" className="carouselImage" />
+              <img src="/tile_images/british-library-Z-hDv4LfgXU-unsplash.webp" alt="Inspiration 6" className="carouselImage" />
               <p>"Dream it. Wish it. Do it."</p>
             </div>
           </figure>
           <figure className="carouselItem trans3d">
             <div className="carouselItemInner trans3d">
-              <img src="/tile_images/mcgill-library-osPrIcTwJy4-unsplash.jpg" alt="Inspiration 7" className="carouselImage" />
+              <img src="/tile_images/mcgill-library-osPrIcTwJy4-unsplash.webp" alt="Inspiration 7" className="carouselImage" />
               <p>"Stay positive, work hard, make it happen."</p>
             </div>
           </figure>

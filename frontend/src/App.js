@@ -9,7 +9,6 @@ import Services from "./components/Services";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Skills from "./components/Skills";
-import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const App = () => {
   useEffect(() => {
