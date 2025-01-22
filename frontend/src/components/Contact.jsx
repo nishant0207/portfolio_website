@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
 import axios from 'axios'; // Ensure axios is installed
-import DataUsage from './DataUsage';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -72,9 +71,6 @@ const Contact = () => {
                 <button type="submit">Send Message</button>
                 {status && <p>{status}</p>} {/* Status message */}
             </form>
-            <div>
-                <DataUsage/>
-            </div>
         </div>
     );
 };

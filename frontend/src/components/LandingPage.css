@@ -1,174 +1,142 @@
+/* Container Styles */
 .landing-container {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background-color: #ffffff; /* Maintain the white background */
-  overflow: hidden;
+  background-color: #ffffff;
+  padding: 20px;
+  /*overflow: hidden; !* Prevents scrollbars during animation *!*/
 }
 
-.trans3d {
-  transform-style: preserve-3d;
-  transform: translate3d(0, 0, 0);
-}
-
-#contentContainer {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 100vw; /* Standard width for larger screens */
-  height: 70vh; /* Consistent height */
-  max-width: 100vw; /* Limit container width to fit within viewport */
-  max-height: 80vh; /* Limit height to fit within viewport */
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  pointer-events: none; /* Disable pointer events on the container */
-}
-
-#carouselContainer {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 800px; /* Adjusted to ensure visibility without reducing tile size */
-  height: 800px; /* Adjusted to fit properly */
-  transform: translate(-50%, -50%);
-  pointer-events: auto; /* Enable interaction within the carousel area */
-}
-
-.carouselItem {
-  width: 300px;
-  height: 400px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -125px; /* Centering adjustments */
-  margin-top: -175px;
-  visibility: hidden;
-}
-
-.carouselItemInner {
-  width: 250px;
-  height: 350px;
-  position: absolute;
-  background-color: #333;
-  color: #ffffff;
-  border-radius: 20px;
-  font-size: 18px;
-  left: 50%;
-  top: 50%;
-  margin-left: -125px;
-  margin-top: -175px;
-  text-align: center;
+.content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-start;
-  text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.35);
-}
-
-.carouselImage {
-  width: 100%;           /* Image takes full width of container */
-  height: 100%;           /* Image height is 60% of the container */
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  object-fit: cover;     /* Ensures image covers the container area without stretching */
-}
-
-.carouselItemInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
+  padding: 20px;
+  animation: fadeIn 1.5s ease-out; /* Main animation for content */
 }
 
-.carouselItemInner img {
-  width: 100%;
-  max-height: 80%; /* Increased height for portrait format */
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  object-fit: cover;
+.text-content {
+  max-width: 600px;
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(50px); /* Slide in from below */
+  animation: fadeInUp 1.5s ease-out forwards;
 }
 
-.carouselItemInner p {
+.text-content h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.text-content h1 .highlight {
+  color: #5a67d8; /* Match primary brand color */
+}
+
+.text-content h2 {
+  font-size: 2rem;
+  font-weight: 400;
   margin: 10px 0;
-  padding: 0 10px;
-  font-size: 18px;       /* Adjusted for text readability */
-  color: #ffffff;
 }
 
+.button-group {
+  display: flex;
+  gap: 10px;
+}
 
-/* Responsive styles for tablets */
+.primary-btn,
+.secondary-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background-color: #5a67d8;
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: #434190;
+}
+
+.secondary-btn {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.secondary-btn:hover {
+  background-color: #cbd5e0;
+}
+
+/* Visual Content (Right Side) */
+.visual-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(50px); /* Slide in from below */
+  animation: fadeInUp 1.5s ease-out forwards 0.3s; /* Delayed for staggered effect */
+}
+
+.illustration {
+  width: 300px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+  border-radius: 15px; /* Optional: Rounded corners */
+  /*box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); !* Optional: Adds shadow for better visibility *!*/
+}
+
+/* Keyframes for Fade-in and Slide-up Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  #contentContainer {
-    width: 80vw; /* Increase the width to ensure better tile visibility */
-    height: 60vh;
-    max-width: 85vw; /* Ensure the container doesn't exceed the viewport */
-    max-height: 65vh;
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  #carouselContainer {
-    width: 600px;
-    height: 600px;
+  .text-content {
+    max-width: 100%;
   }
 
-  .carouselItem {
-    width: 200px;
-    height: 300px;
-    margin-left: -100px;
-    margin-top: -150px;
-  }
-
-  .carouselImage {
-    width: 100%; /* Make image fill the tile width */
-    height: 60%; /* Adjust height for balance with text */
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    object-fit: cover; /* Maintain image aspect ratio */
-  }
-
-  .carouselItemInner p {
-    margin: 10px 0; /* Add spacing below the image */
-    padding: 0 10px;
-    font-size: 16px;
-    color: #ffffff;
-  }
-
-  .carouselItemInner {
-    width: 200px;
-    height: 300px;
-    font-size: 16px;
+  .visual-content {
+    margin-top: 20px;
   }
 }
 
-/* Responsive styles for mobile devices */
 @media (max-width: 480px) {
-  #contentContainer {
-    width: 95vw; /* Full width to ensure tiles are visible */
-    height: 50vh; /* Adjust height for better visibility */
-    max-width: 95vw; /* Ensure it fits within smaller screens */
-    max-height: 55vh;
-    overflow-x: hidden; /* Prevent any horizontal overflow */
+  .text-content h1 {
+    font-size: 2rem;
   }
 
-  #carouselContainer {
-    width: 500px; /* Properly fit the carousel */
-    height: 500px;
+  .text-content h2 {
+    font-size: 1.5rem;
   }
 
-  .carouselItem {
-    width: 200px;
-    height: 280px;
-    margin-left: -90px;
-    margin-top: -140px;
+  .text-content p {
+    font-size: 1rem;
   }
 
-  .carouselItemInner {
-    width: 200px;
-    height: 280px;
-    font-size: 14px;
+  .illustration {
+    width: 150px;
+    height: 150px;
   }
 }
