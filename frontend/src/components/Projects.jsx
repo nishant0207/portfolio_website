@@ -90,6 +90,20 @@ const projectsData = [
     liveDemo: '',
     github: 'Private Repository',
   },
+  {
+    title: 'Signature Verification System',
+    description: 'A final-year project aimed at automating signature verification on bank cheques to reduce fraud. It uses image processing and machine learning algorithms such as SVM, OCR, and a Line Sweep algorithm.',
+    techStack: ['Python', 'OpenCV', 'SVM', 'OCR', 'Line Sweep Algorithm'],
+    liveDemo: '',
+    github: 'https://github.com/nishant0207/Signature-Verification',
+  },
+  {
+    title: 'Online File Sharing (Frontend + Backend)',
+    description: 'A full-stack application that enables secure online file sharing with a user-friendly frontend and robust backend implementation.',
+    techStack: ['JavaScript', 'Python', 'CSS', 'HTML'],
+    liveDemo: '',
+    github: 'https://github.com/nishant0207/online-filesharing',
+  },
 ];
 
 const Projects = () => {
