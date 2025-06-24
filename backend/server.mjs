@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 // server.mjs
 import express from 'express';
 import axios from 'axios';
@@ -28,7 +31,7 @@ app.get('/api/leetcode-stats', async (req, res) => {
       }
     }
   `;
-  const variables = { username: 'dalalnishant0207' };
+  const variables = { username: 'ndalal0207' };
 
   try {
     console.log(`Fetching data from LeetCode.`);
