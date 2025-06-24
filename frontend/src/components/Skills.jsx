@@ -108,7 +108,7 @@ const Skills = () => {
             }}
           >
             <LeetCodeCalendar
-              username="dalalnishant0207"
+              username="ndalal0207"
               blockSize={18} // Size of each block in pixels (default: 15)
               blockMargin={5} // Margin between blocks in pixels (default: 5)
               fontSize={18} // Font size of the text within blocks (default: 16)
