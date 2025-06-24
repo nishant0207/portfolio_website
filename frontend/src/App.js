@@ -34,9 +34,9 @@ const App = () => {
         <section id="projects">
           <Projects />
         </section>
-        <section id="services">
+        {/* <section id="services">
           <Services />
-        </section>
+        </section> */}
         <section id="contact">
           <Contact />
         </section>
