@@ -157,6 +157,8 @@ app.post('/api/send-message', async (req, res) => {
   `;
 
   try {
+    console.log('>>> TOKEN:', TELEGRAM_BOT_TOKEN);
+    console.log('>>> CHAT_ID:', TELEGRAM_CHAT_ID);
     await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       chat_id: TELEGRAM_CHAT_ID,
       text: telegramMessage,
