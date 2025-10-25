@@ -44,7 +44,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolling ? 'scrolling' : ''}`}>
       <div className="navbar-container">
-      <div><h1 className="logo">Nishant Dalal</h1></div>
+      {/*<div><h1 className="logo">Nishant Dalal</h1></div>*/}
         <div className={`menu-icon ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           {/* Hamburger Icon */}
           <div className="menu-bar"></div>

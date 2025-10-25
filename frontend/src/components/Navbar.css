@@ -19,9 +19,9 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-between; /* Align name to the left, links to the right */
+  justify-content: center; /* Align name to the left, links to the right */
   align-items: center; /* Vertically center the items */
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
