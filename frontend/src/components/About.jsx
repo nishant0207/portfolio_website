@@ -16,7 +16,7 @@ const About = () => {
             <h1 style={{ display: 'inline-block', marginRight: '10px' }}>Work Experience:</h1>
             <p style={{ display: 'inline-block' }}>
               Full Stack Developer Intern<span style={{ display: 'block' }}>Neugence Technology</span>
-              <span style={{ display: 'block', fontSize: '14px', color: 'gray' }}>May 2025 - Current</span>
+              <span style={{ display: 'block', fontSize: '14px', color: 'gray' }}>May 2024 - Current</span>
             </p>
           </div>
           <p>
