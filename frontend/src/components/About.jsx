@@ -23,7 +23,7 @@ const About = () => {
             </div>
           </div>
           <p>
-            I enjoy solving complex problems and have built a lot of projects, showcasing my expertise in SaaS solutions, blockchain, and cloud integration.
+            I enjoy solving complex problems and have built a lot of projects, showcasing my expertise in SaaS solutions, and cloud integration.
           </p>
           <p>Scroll down to see more...</p>
         </div>

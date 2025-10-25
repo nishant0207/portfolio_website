@@ -1,30 +1,41 @@
 .contact-section {
   padding: 60px;
-  text-align: center;
-  background-color: #f7f7f7; /* Light background to match the carousel styling */
-  color: #333; /* Darker text for contrast */
+  text-align: center; /* keeps <contact me> centered */
+  background-color: #f7f7f7;
+  color: #333;
   font-family: 'Arial', sans-serif;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* stack title + content vertically */
   align-items: center;
   justify-content: center;
+  min-height: 90vh;
 }
+
 
 .contact-section h2 {
   font-size: 48px;
   font-family: 'Courier New', Courier, monospace;
   margin-bottom: 40px;
-  color: #000; /* Match the color used in section titles */
+  color: #000;
 }
+
+.contact-wrapper {
+  display: flex;
+  justify-content: center;  /* horizontal centering */
+  align-items: center;      /* vertical centering */
+  gap: 60px;                /* space between columns */
+  width: 100%;
+  max-width: 1200px;        /* optional max width */
+}
+
 
 .contact-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start;  /* left align text inside the column */
   justify-content: center;
-  max-width: 600px;
-  width: 100%;
+  flex: 1;                  /* take equal space */
 }
 
 .contact-item {
@@ -59,8 +70,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 30px;
-  width: 100%;
+  flex: 1;                  /* take equal space */
   max-width: 600px;
 }
 
@@ -95,4 +105,21 @@
   background-color: #f7f7f7; /* Swap colors on hover */
   color: #000;
   border: 2px solid #000; /* Add border for a pop effect on hover */
+}
+
+@media (max-width: 1024px) {
+  .contact-wrapper {
+    flex-direction: column; /* stack on smaller screens */
+    align-items: center;
+  }
+
+  .contact-details {
+    align-items: center; /* center text for stacked layout */
+    text-align: center;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+  }
 }

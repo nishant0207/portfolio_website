@@ -61,7 +61,7 @@ const Skills = () => {
       <h1 className="skills-title">&lt;skills&gt;</h1>
 
       <div className="skills-container">
-        <h1 style={{fontFamily:"Courier New"}}>&lt;Certifications/&gt;</h1>
+        <h1 style={{fontFamily:"Courier New"}}>&lt;certifications/&gt;</h1>
         <div className="carousel-container">
           {certifications.map((cert, index) => (
             <CertificationTile
@@ -79,21 +79,19 @@ const Skills = () => {
         <Loader />
       ) : leetcodeStats ? (
         <>
-          <div className="leetcode-container">
-            <div className="leetcode-solved">
-              <h3>{leetcodeStats.totalSolved}/3284</h3>
-              <p>Solved</p>
-            </div>
-            <div className="leetcode-difficulty">
-              <p>
-                <span className="easy">Easy</span>: {leetcodeStats.easySolved}
-              </p>
-              <p>
-                <span className="medium">Medium</span>: {leetcodeStats.mediumSolved}
-              </p>
-              <p>
-                <span className="hard">Hard</span>: {leetcodeStats.hardSolved}
-              </p>
+          <div style={{display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+            <div className="leetcode-container">
+              <div className="leetcode-solved">
+                <h3>{leetcodeStats.totalSolved}/3284</h3>
+                <p>Solved</p>
+              </div>
+              <div className="leetcode-difficulty">
+                <div className="leetcode-inner">
+                  <p><span className="easy">Easy</span>: {leetcodeStats.easySolved}</p>
+                  <p><span className="medium">Medium</span>: {leetcodeStats.mediumSolved}</p>
+                  <p><span className="hard">Hard</span>: {leetcodeStats.hardSolved}</p>
+                </div>
+              </div>
             </div>
           </div>
           {/*<div*/}

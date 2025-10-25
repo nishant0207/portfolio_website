@@ -66,84 +66,98 @@ const GithubHeatmap = () => {
       }}
     >
       <h2 style={{fontFamily: "Courier New", fontSize:"40px"}}>&lt;github contributions&gt;</h2>
-      <div
-        style={{
-          marginBottom: '20px',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <label
-          htmlFor="year-selector"
-          style={{
-            marginRight: '10px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            color: '#333',
-          }}
-        >
-          Select Year:
-        </label>
-        <select
-          id="year-selector"
-          value={selectedYear || ''}
-          onChange={(e) => {
-            const year = e.target.value ? parseInt(e.target.value) : null;
-            setSelectedYear(year);
-          }}
-          style={{
-            padding: '5px 10px',
-            fontSize: '14px',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            color: '#24292e',
-            backgroundColor: '#f8f9fa',
-          }}
-        >
-          <option value="">Last Year</option>
-          {[2025, 2024, 2023, 2022, 2021].map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          width: '100%', // Ensure it uses full width for proper centering
-          overflowX: 'auto', // Handle any potential overflow
-        }}
-      >
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <div
+        <div
             style={{
-              maxWidth: '1250px', // Limit the heatmap's max width for consistent centering
-              width: '100%', // Ensure responsiveness
-              margin: '0 auto', // Center the heatmap horizontally
-              display: 'flex',
-              justifyContent: 'center',
+                marginBottom: '20px',
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
             }}
-          >
-            <HeatMap
-              className='heatmap'
-              style={{fontSize: "18px"}}
-              width={"100vw"}
-              height={"200px"}
-              value={contributions}
-              startDate={selectedYear ? new Date(`${selectedYear}-01-01`) : oneYearAgo}
-              endDate={selectedYear ? new Date(`${selectedYear}-12-31`) : today}
-              rectSize={18}
-              space={5}
-              legendCellSize={15}
-              legendRender={(value) => `${value || 0} contributions`}
+        >
+            <label
+                htmlFor="year-selector"
+                style={{
+                    marginRight: '10px',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
+                    color: '#333',
+                }}
+            >
+                Select Year:
+            </label>
+            <select
+                id="year-selector"
+                value={selectedYear || ''}
+                onChange={(e) => {
+                    const year = e.target.value ? parseInt(e.target.value) : null;
+                    setSelectedYear(year);
+                }}
+                style={{
+                    padding: '5px 36px 5px 12px',            // extra right padding to clear custom arrow
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    borderRadius: '4px',
+                    color: 'white',
+                    backgroundColor: '#333',
+                    border: '1px solid #444',
+                    cursor: 'pointer',
+
+                    /* remove native arrow across browsers */
+                    WebkitAppearance: 'none',
+                    MozAppearance: 'none',
+                    appearance: 'none',
+
+                    /* custom arrow (SVG data URI). note use of template literal for safe quoting) */
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 10px center',
+                    backgroundSize: '14px',
+
+                    backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>")`
+                }}
+            >
+                <option value="">Last Year</option>
+                {[2025, 2024, 2023, 2022, 2021].map((year) => (
+                    <option key={year} value={year}>
+                        {year}
+                    </option>
+                ))}
+            </select>
+        </div>
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                width: '100%', // Ensure it uses full width for proper centering
+                overflowX: 'auto', // Handle any potential overflow
+            }}
+        >
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : (
+                <div
+                    style={{
+                        maxWidth: '1250px', // Limit the heatmap's max width for consistent centering
+                        width: '100%', // Ensure responsiveness
+                        margin: '0 auto', // Center the heatmap horizontally
+                        display: 'flex',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <HeatMap
+                        className='heatmap'
+                        style={{fontSize: "18px"}}
+                        width={"100vw"}
+                        height={"200px"}
+                        value={contributions}
+                        startDate={selectedYear ? new Date(`${selectedYear}-01-01`) : oneYearAgo}
+                        endDate={selectedYear ? new Date(`${selectedYear}-12-31`) : today}
+                        rectSize={18}
+                        space={5}
+                        legendCellSize={15}
+                        legendRender={(value) => `${value || 0} contributions`}
               rectProps={{
                 rx: 2,
               }}
