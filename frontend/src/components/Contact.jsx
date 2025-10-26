@@ -60,7 +60,7 @@ const Contact = () => {
                     </div>
                     <div className="contact-item">
                         <i className="fas fa-file-download"></i>
-                        <p><a href="https://drive.google.com/file/d/1pijMc9xkesqZdr86-Q2CVdl6kVIKOrfy/view?usp=sharing"
+                        <p><a href="https://drive.google.com/file/d/1JiCC32kAlG6eusEcVhxTUiOTbn0sO7N0/view?usp=sharing"
                               target='_blank' rel='noopener noreferrer' download>Resume</a></p>
                     </div>
                 </div>
